@@ -1,0 +1,381 @@
+@import "./tokens.css";
+
+/* Saira, self-hosted (same files and axes as genjiball-ui's base.css). */
+@font-face {
+  font-family: Saira;
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 50% 125%;
+  font-display: swap;
+  src: url("/fonts/saira-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: Saira;
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 50% 125%;
+  font-display: swap;
+  src: url("/fonts/saira-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* The cards room: same family as genjiball.us, a darker, richer surface. */
+:root {
+  --room: oklch(8% 0.008 225);
+  --glass: oklch(13% 0.009 220 / 0.72);
+  --glass-hi: oklch(19% 0.01 215 / 0.8);
+  --r-common: oklch(88% 0.01 210);
+  --r-rare: oklch(72% 0.14 255);
+  --r-epic: oklch(70% 0.18 305);
+  --r-legendary: oklch(86.6% 0.126 90);
+  --r-mythic: oklch(62.6% 0.182 32);
+  --accent: var(--r-common);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dock-pad: max(10px, env(safe-area-inset-bottom));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--room);
+  color: var(--fg);
+  font-family: var(--font);
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+#stage:active {
+  cursor: grabbing;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#app > * {
+  pointer-events: auto;
+}
+
+/* ---------- header ---------- */
+.top {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "brand . count"
+    "name name name";
+  align-items: center;
+  row-gap: 6px;
+  padding: max(12px, env(safe-area-inset-top)) 16px 0;
+}
+.brand {
+  grid-area: brand;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--green);
+  text-decoration: none;
+}
+.brand svg {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 0 10px oklch(79% 0.132 158 / 0.35));
+}
+.brand span {
+  color: var(--fg);
+  font-size: 0.8rem;
+  font-weight: 750;
+  font-stretch: 75%;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.count {
+  grid-area: count;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-stretch: 80%;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+.name {
+  grid-area: name;
+  justify-self: start;
+  min-width: 0;
+  max-width: 100%;
+}
+.rarity-tag {
+  display: inline-block;
+  color: var(--accent);
+  font-size: var(--label-size);
+  font-weight: 750;
+  font-stretch: 75%;
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.card-name {
+  margin: 1px 0 0;
+  font-size: 1.55rem;
+  line-height: 1.05;
+  font-weight: 760;
+  font-stretch: 76%;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-title {
+  margin: 2px 0 0;
+  color: var(--soft);
+  font-size: 0.84rem;
+  font-stretch: 88%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- dock ---------- */
+.dock {
+  margin: 0 10px var(--dock-pad);
+  padding: 6px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--glass-hi), var(--glass));
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 0 oklch(100% 0 0 / 0.04) inset, 0 18px 40px oklch(3% 0.01 220 / 0.7);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+.rarities {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.rar {
+  position: relative;
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 4px 2px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+}
+.rar .gem {
+  width: 10px;
+  height: 10px;
+  background: var(--rc);
+  transform: rotate(45deg);
+  border-radius: 2px;
+  opacity: 0.55;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+.rar .full {
+  font-size: 0.64rem;
+  font-weight: 700;
+  font-stretch: 72%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.rar .pips {
+  display: flex;
+  gap: 3px;
+  height: 3px;
+}
+.rar .pips b {
+  width: 8px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--border);
+}
+.rar[aria-selected="true"] {
+  color: var(--fg);
+  background: oklch(100% 0 0 / 0.045);
+}
+.rar[aria-selected="true"] .gem {
+  opacity: 1;
+  box-shadow: 0 0 12px var(--rc);
+}
+.rar[aria-selected="true"] .pips b.on {
+  background: var(--rc);
+}
+@media (hover: hover) {
+  .rar:hover {
+    color: var(--fg);
+  }
+  .btn:hover {
+    background: oklch(100% 0 0 / 0.06);
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+  padding-top: 6px;
+}
+.btn {
+  flex: 1 1 0;
+  min-width: 48px;
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--soft);
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, transform 0.15s var(--ease-out);
+}
+.btn span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-stretch: 72%;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.btn svg {
+  width: 22px;
+  height: 22px;
+}
+.btn:active {
+  transform: scale(0.94);
+}
+.btn[aria-pressed="true"] {
+  color: var(--green);
+}
+.btn[data-act="prev"],
+.btn[data-act="next"] {
+  color: var(--fg);
+}
+.btn[hidden] {
+  display: none;
+}
+
+/* Wider screens: the same pieces, roomier. */
+@media (min-width: 720px) {
+  .top {
+    padding: 22px 32px 0;
+    row-gap: 14px;
+  }
+  .brand svg {
+    width: 30px;
+    height: 30px;
+  }
+  .card-name {
+    font-size: 2.3rem;
+  }
+  .card-title {
+    font-size: 0.95rem;
+  }
+  .dock {
+    align-self: center;
+    width: min(600px, calc(100% - 40px));
+    margin-bottom: max(22px, env(safe-area-inset-bottom));
+    padding: 8px;
+    border-radius: 24px;
+  }
+  .rar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+  .rar .pips {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+  .rar .full {
+    font-size: 0.7rem;
+  }
+  .btn {
+    flex-direction: row;
+    gap: 8px;
+  }
+  .btn span {
+    font-size: 0.68rem;
+  }
+}
+
+/* Short landscape phones: header goes single-row so the card keeps its height. */
+@media (max-height: 520px) and (orientation: landscape) {
+  .top {
+    grid-template-areas: "brand name count";
+    column-gap: 16px;
+    padding-top: 8px;
+  }
+  .card-name {
+    font-size: 1.1rem;
+  }
+  .card-title {
+    display: none;
+  }
+  .rar .pips {
+    display: none;
+  }
+  .rar {
+    min-height: 44px;
+  }
+  .btn {
+    min-height: 44px;
+  }
+}
+
+.ui-hidden #app {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

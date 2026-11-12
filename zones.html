@@ -1,0 +1,19 @@
+<!doctype html>
+<!-- Dev-only inspection page for the per-card zone detection (not part of the build).
+     Each card: the image, then the same image with the detected zones drawn over it:
+     orange = frame band, green line = window outline (solid where a painted line was found,
+     dashed where it wasn't), blue = depth weight, red = painted outer outline. -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>zones</title>
+    <style>
+      body { margin: 0; background: #1a1a1a; color: #ccc; font: 12px sans-serif; display: grid; grid-template-columns: repeat(5, 660px); gap: 8px; padding: 8px; }
+      figure { margin: 0; }
+      canvas { display: inline-block; width: 320px; height: 440px; margin-right: 4px; }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="/src/zonesDebug.js"></script>
+  </body>
+</html>

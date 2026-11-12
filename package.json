@@ -1,0 +1,19 @@
+{
+  "name": "cards-redesign-proto",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "shots": "node scripts/shots.mjs"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.65.0",
+    "vite": "^8.3.8"
+  }
+}

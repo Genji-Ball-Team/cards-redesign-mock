@@ -17,8 +17,11 @@ import { settings } from "../settings.js";
 const BASE = `${import.meta.env.BASE_URL}audio/`;
 const FADE = 0.12;
 const VOICES = ["brian", "george", "callum", "lily"];
-const asked = new URLSearchParams(location.search).get("voice");
-const VOICE = VOICES.includes(asked) ? asked : VOICES[0];
+const TRACKS = ["japan", "lofi"];
+const query = new URLSearchParams(location.search);
+const pick = (list, key) => (list.includes(query.get(key)) ? query.get(key) : list[0]);
+const VOICE = pick(VOICES, "voice");
+const TRACK = pick(TRACKS, "music");
 
 export class Audio {
   constructor() {
@@ -87,8 +90,9 @@ export class Audio {
     if (this.buffers.has(name)) return this.buffers.get(name);
     const ev = this.manifest[name];
     if (!ev || !this.ctx) return null;
-    // announcer lines exist once per voice, picked with ?voice=
-    const path = ev.bus === "voice" ? `voices/${VOICE}/${ev.file}` : ev.file;
+    // the announcer line exists once per voice (?voice=), the music once per track (?music=)
+    const path =
+      ev.bus === "voice" ? `voices/${VOICE}/${ev.file}` : ev.bus === "music" ? `music/${TRACK}.mp3` : ev.file;
     const p = fetch(BASE + path)
       .then((r) => {
         const type = r.headers.get("content-type") || "";

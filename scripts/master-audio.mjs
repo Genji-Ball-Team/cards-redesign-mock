@@ -13,7 +13,7 @@ const out = fileURLToPath(new URL('../public/audio/', import.meta.url));
 // mean / peak: the level the file ends up at (dBFS), whichever is reached first.
 // lowpass takes the hiss and edge off; cut shortens a file the generator padded.
 const MIX = {
-  'music-stage': { mean: -30, peak: -14, loop: true },
+  'music-stage': { mean: -29, peak: -12, loop: true },
   'card-hover': { mean: -40, peak: -20, loop: true },
   'pack-shimmer': { mean: -36, peak: -16, lowpass: 9000 },
   'pack-tap': { mean: -32, peak: -12 },
@@ -67,10 +67,16 @@ function master(from, to, name) {
 }
 
 for (const name of Object.keys(MIX)) {
-  if (name === 'announce-mythic') continue;
+  if (name === 'announce-mythic' || name === 'music-stage') continue;
   const from = `${src}${name}.mp3`;
   if (existsSync(from)) master(from, `${out}${name}.mp3`, name);
   else console.log(`${name.padEnd(16)} no source`);
+}
+// the background tracks to choose from, all levelled as the music bed
+const music = `${src}music/`;
+if (existsSync(music)) {
+  mkdirSync(`${out}music`, { recursive: true });
+  for (const file of readdirSync(music)) master(`${music}${file}`, `${out}music/${file}`, 'music-stage');
 }
 const voices = `${src}voices/`;
 if (existsSync(voices)) {

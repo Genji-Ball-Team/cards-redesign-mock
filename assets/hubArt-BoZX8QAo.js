@@ -1,4 +1,4 @@
-import{s as e}from"./icons-B4UciC06.js";import{R as t,ft as n,tn as r,u as i,x as a,z as o}from"./geometry-CzHUig4W.js";import{a as s,o as c}from"./card-xWt4fB0H.js";var l=`
+import{s as e}from"./icons-B4UciC06.js";import{R as t,ft as n,tn as r,u as i,x as a,z as o}from"./geometry-CzHUig4W.js";import{a as s,o as c}from"./card-DykATURn.js";var l=`
 varying vec2 vUv;
 varying vec3 vWorldPos;
 varying vec3 vNormalW;

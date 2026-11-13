@@ -1,4 +1,4 @@
-import{a as e,d as t,i as n,l as r,n as i,r as a,w as o}from"./index-C5lIzm2u.js";import{c as s,i as c,n as l,r as u}from"./tiles-qExaDZAq.js";import{t as d}from"./rooms-QeEAnYUs.js";import{t as f}from"./deckDraft-C1e_Klf_.js";import{i as p,n as m}from"./icons-B4UciC06.js";function h(h){let{audio:g}=h,_=e=>`#/collection/${encodeURIComponent(e)}`;return d(h,`collection`,!0,d=>{d.body.innerHTML=`
+import{a as e,d as t,i as n,l as r,n as i,r as a,w as o}from"./index-J3lP8W1Y.js";import{c as s,i as c,n as l,r as u}from"./tiles-Bk9c6msT.js";import{t as d}from"./rooms-BNkw98pp.js";import{t as f}from"./deckDraft-toAWMSnS.js";import{i as p,n as m}from"./icons-B4UciC06.js";function h(h){let{audio:g}=h,_=e=>`#/collection/${encodeURIComponent(e)}`;return d(h,`collection`,!0,d=>{d.body.innerHTML=`
       <header class="rhead">
         <h1 class="rtitle">Collection</h1>
         <div class="col-progress">

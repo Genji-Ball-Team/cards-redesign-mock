@@ -40,7 +40,8 @@ export const FLIPS = {
 };
 
 // Gap between the reveal sting and the announcer, so they don't talk over each other.
-export const ANNOUNCE_GAP = { epic: 0.75, legendary: 1.0, mythic: 1.05 };
+// only a mythic is called out
+export const ANNOUNCE_GAP = { mythic: 1.05 };
 
 // Envelope: rises a->b, holds b->c, falls c->d. Written as one tween over a..d.
 export function env(tl, a, b, c, d, fn, up = ease.out2, down = ease.inOut2) {
@@ -99,11 +100,12 @@ function makeFlipKit(tl, ctx) {
         slot.yaw = 0;
       });
     },
-    // the moment the face is up: sting now, announcer after a gap (full shows, epic and up)
+    // the moment the face is up: sting now (a common only gets its flip sound), announcer
+    // after a gap (full shows, mythic only)
     sting(at) {
       tl.revealAt = at;
       tl.cue(at, () => {
-        audio.play(`sting-${slot.rarity.id}`);
+        if (slot.rarity.id !== "common") audio.play(`sting-${slot.rarity.id}`);
         ctx.onReveal?.(slot);
       });
       const gap = ANNOUNCE_GAP[slot.rarity.id];

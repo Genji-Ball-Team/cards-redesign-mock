@@ -16,7 +16,7 @@ import { settings } from "../settings.js";
 
 const BASE = `${import.meta.env.BASE_URL}audio/`;
 const FADE = 0.12;
-const VOICES = ["hype", "warrior", "boss"];
+const VOICES = ["brian", "george", "callum", "lily"];
 const asked = new URLSearchParams(location.search).get("voice");
 const VOICE = VOICES.includes(asked) ? asked : VOICES[0];
 
@@ -53,9 +53,17 @@ export class Audio {
     this.ctx = ctx;
     this.master = ctx.createGain();
     this.master.gain.value = this.muted ? 0 : 1;
-    this.master.connect(ctx.destination);
+    // a limiter last, so stacked sounds (five flips at once) can't add up to a blast
+    const limiter = ctx.createDynamicsCompressor();
+    limiter.threshold.value = -14;
+    limiter.knee.value = 8;
+    limiter.ratio.value = 12;
+    limiter.attack.value = 0.003;
+    limiter.release.value = 0.2;
+    this.master.connect(limiter).connect(ctx.destination);
     this.bus = {};
-    for (const [name, level] of [["music", 0.45], ["fx", 0.9], ["voice", 1]]) {
+    // the files carry their own levels (scripts/master-audio.mjs), so the buses stay at 1
+    for (const [name, level] of [["music", 1], ["fx", 1], ["voice", 1]]) {
       const g = ctx.createGain();
       g.gain.value = level;
       g.connect(this.master);

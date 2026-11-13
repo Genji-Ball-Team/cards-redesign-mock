@@ -11,8 +11,9 @@ const [keyFile, ...rest] = process.argv.slice(2);
 const force = rest.includes('--force');
 const only = rest.filter((a) => !a.startsWith('--'));
 const key = readFileSync(keyFile, 'utf8').trim();
-const dir = new URL('../public/audio/', import.meta.url);
-const manifest = JSON.parse(readFileSync(new URL('manifest.json', dir), 'utf8'));
+// raw files go to audio-src/; master-audio.mjs levels them into public/audio/
+const dir = new URL('../audio-src/', import.meta.url);
+const manifest = JSON.parse(readFileSync(new URL('../public/audio/manifest.json', import.meta.url), 'utf8'));
 
 const MIN_SECONDS = 0.5;
 const MAX_SECONDS = 30;

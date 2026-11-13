@@ -1,0 +1,3286 @@
+{
+ "version": "patch-1.3.1",
+ "cards": [
+  {
+   "key": "god",
+   "name": "GOD",
+   "title": "Father of NA",
+   "rarity": "Mythic",
+   "hp": 385,
+   "retreat": 2,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Egoist (2 Energy | 50-90 dmg): Deals a random 50 to 90 damage, in steps of 5. The target's next attack deals half that much less.",
+    "Best Coach (3 Energy): Your other players deal 25% more damage for your next 2 turns. Can't be used again while active.",
+    "Lore Master (3 Energy): Use a random move of an enemy player on the field, for free (copy rules apply)."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "god.egoist",
+     "name": "Egoist",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "god.coach",
+     "name": "Best Coach",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "god.lore",
+     "name": "Lore Master",
+     "cost": 3,
+     "damage": null,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "hop",
+   "name": "Hop baiter",
+   "title": "Deutscher \"Immigrant\"",
+   "rarity": "Mythic",
+   "hp": 340,
+   "retreat": 2,
+   "tags": [
+    "Troller",
+    "German"
+   ],
+   "collectible": true,
+   "text": [
+    "Orbit Retard (3 Energy | 155 dmg): Hop baiter can't attack on your next turn.",
+    "Sprechen Deutsch (2 Energy | 90 dmg): With another German player on your field, your other players deal +20 damage this turn.",
+    "Glazes Ipseity (3 Energy | 120 dmg): Costs 1 less Energy if Ipseity is on your field."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "hop.orbit",
+     "name": "Orbit Retard",
+     "cost": 3,
+     "damage": 155,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "hop.sprechen",
+     "name": "Sprechen Deutsch",
+     "cost": 2,
+     "damage": 90,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "hop.glazes",
+     "name": "Glazes Ipseity",
+     "cost": 3,
+     "damage": 120,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "ipseity",
+   "name": "Ipseity",
+   "title": "Current #1 French Tracking Demon",
+   "rarity": "Mythic",
+   "hp": 350,
+   "retreat": 2,
+   "tags": [
+    "Troller",
+    "French"
+   ],
+   "collectible": true,
+   "text": [
+    "Consistency (Passive): Ipseity never takes more than 120 damage from one attack. This applies to True damage too.",
+    "Speaking French (2 Energy | 80 dmg): With another French player on your field, your other players deal +20 damage this turn.",
+    "Glazes Razzer (3 Energy | 115 dmg): +25 damage if Hop baiter is on your field."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "ipseity.french",
+     "name": "Speaking French",
+     "cost": 2,
+     "damage": 80,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "ipseity.razzer",
+     "name": "Glazes Razzer",
+     "cost": 3,
+     "damage": 115,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "monarch",
+   "name": "The Shadow Monarch",
+   "title": "Prime Shadow Monarch",
+   "rarity": "Mythic",
+   "hp": 385,
+   "retreat": 4,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Eyes of Foresight (3 Energy): Once per game: he takes no damage from the next attack against him, then hits that attacker back for 50.",
+    "Monarch's Deflect (5 Energy | 160 dmg): TRUE DAMAGE, PIERCE.",
+    "Monarch's Aura (Passive): enemy players deal 5 less damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "monarch.eyes",
+     "name": "Eyes of Foresight",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": true
+    },
+    {
+     "index": 1,
+     "key": "monarch.deflect",
+     "name": "Monarch's Deflect",
+     "cost": 5,
+     "damage": 160,
+     "target": "enemy",
+     "true": true,
+     "pierce": true,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "corrupt",
+   "name": "Corrupt",
+   "title": "The Runner",
+   "rarity": "Legendary",
+   "hp": 300,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Prep time (2 Energy | 40 dmg): On your next turn Corrupt deals 35% more damage, and until then he takes 35% less.",
+    "Runner (2 Energy): Until your next turn, each attack on Corrupt has a 50% chance to miss.",
+    "Calculated Orbit (3 Energy | 90-160 dmg): Deals a random 90 to 160 damage, in steps of 5."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "corrupt.prep",
+     "name": "Prep time",
+     "cost": 2,
+     "damage": 40,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "corrupt.runner",
+     "name": "Runner",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "corrupt.orbit",
+     "name": "Calculated Orbit",
+     "cost": 3,
+     "damage": 125,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "darknorth",
+   "name": "Darknorth",
+   "title": "The Jump Pad Legend",
+   "rarity": "Legendary",
+   "hp": 315,
+   "retreat": 3,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Level Head (Passive): no debuffs work on Darknorth. Enemy effects can't lower his damage, raise his move costs, stun, silence or root him.",
+    "Jumpad Technique (2 Energy | 40 dmg): Darknorth takes no damage from the next attack against him before your next turn. Cooldown: can't be used two turns in a row.",
+    "Cross Region Edash (3 Energy | 120 dmg): PIERCE."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "darknorth.jumpad",
+     "name": "Hop",
+     "cost": 2,
+     "damage": 40,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": true,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "darknorth.edash",
+     "name": "Cross Region Edash",
+     "cost": 3,
+     "damage": 120,
+     "target": "enemy",
+     "true": false,
+     "pierce": true,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "heavypoop",
+   "name": "HeavyPoop67",
+   "title": "Origin Unknown",
+   "rarity": "Legendary",
+   "hp": 300,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Ragebait (2 Energy | 70 dmg): If the target is left with 30 HP or less, it rage quits: EXECUTE.",
+    "Drive-By (3 Energy | 105 dmg): +25 damage if HeavyPoop67 was attacked on your opponent's last turn.",
+    "Thinking About the Poop (Passive): the first attack against HeavyPoop67 each turn deals 15 less damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "heavypoop.ragebait",
+     "name": "Ragebait",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "heavypoop.driveby",
+     "name": "Drive-By",
+     "cost": 3,
+     "damage": 105,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "nadia",
+   "name": "Nadia",
+   "title": "The Enchantress of Foresight",
+   "rarity": "Legendary",
+   "hp": 245,
+   "retreat": 3,
+   "tags": [
+    "Troller",
+    "Female"
+   ],
+   "collectible": true,
+   "text": [
+    "Catfished (2 Energy | 60 dmg): The target falls for it and is Stunned.",
+    "Eyes of Foresight (3 Energy | 100 dmg): She sees it coming: Nadia takes no damage from the next attack against her."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "nadia.catfished",
+     "name": "Catfished",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "nadia.eyes",
+     "name": "Eyes of Foresight",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "onikiri",
+   "name": "Onikiri",
+   "title": "The Many-Faced",
+   "rarity": "Legendary",
+   "hp": 280,
+   "retreat": 3,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Too Many Hours (2 Energy | 70 dmg): Until your next turn, Onikiri can't drop below 10 HP. (Execute still knocks him out.)",
+    "The Alleged (2 Energy | 85 dmg): TRUE DAMAGE.",
+    "??? (3 Energy | 45-180 dmg): Deals a random 45, 90, 135 or 180 damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "onikiri.hours",
+     "name": "Too Many Hours",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "onikiri.alleged",
+     "name": "The Alleged",
+     "cost": 2,
+     "damage": 85,
+     "target": "enemy",
+     "true": true,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "onikiri.q",
+     "name": "???",
+     "cost": 3,
+     "damage": 112,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "primeaex",
+   "name": "Prime Aex",
+   "title": "Aex (Prime)",
+   "rarity": "Legendary",
+   "hp": 280,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "My Dad is Literally Right Here (2 Energy | 30 dmg): The target is Stunned and Rooted on its next turn. Can't be used two turns in a row.",
+    "Flip & Finish (3 Energy | 180 dmg): Two stages: this turn the target is flipped and Rooted (it can still attack). On your next turn the slam hits it for 180 without using a move.",
+    "Infinite Excuses (Passive): Prime Aex can't be Stunned or Silenced."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "primeaex.dad",
+     "name": "My Dad is Literally Right Here",
+     "cost": 2,
+     "damage": 30,
+     "target": "enemy_unit",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": true,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "primeaex.flip",
+     "name": "Flip & Finish",
+     "cost": 3,
+     "damage": 180,
+     "target": "enemy_unit",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "syn",
+   "name": "syn prime",
+   "title": "Forbidden Player",
+   "rarity": "Legendary",
+   "hp": 300,
+   "retreat": 3,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Forbidden (Passive): your opponent can't see syn prime's HP or moves until he attacks.",
+    "UNKNOWN (3 Energy | 60-180 dmg): Deals a random 60, 120 or 180 damage.",
+    "UNKNOWN (3 Energy): Use any move of an enemy player on the field, for free (copy rules apply)."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "syn.unknown",
+     "name": "UNKNOWN",
+     "cost": 3,
+     "damage": 120,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "syn.copy",
+     "name": "UNKNOWN (copy)",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "aex",
+   "name": "Aex",
+   "title": "Pathetic Society",
+   "rarity": "Epic",
+   "hp": 270,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Kizzuras Ekitten (Passive): Aex deals +15 damage while Kizzura is on either field (yours or your opponent's).",
+    "Aex Water Ball (2 Energy | 80 dmg): A plain, reliable hit.",
+    "Dictator (3 Energy | 100 dmg): The target is Stunned."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "aex.water",
+     "name": "Aex Water Ball",
+     "cost": 2,
+     "damage": 80,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "aex.dictator",
+     "name": "Dictator",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "gybbus",
+   "name": "Dr. Gybbus",
+   "title": "French Bot Engineer",
+   "rarity": "Epic",
+   "hp": 270,
+   "retreat": 2,
+   "tags": [
+    "French"
+   ],
+   "collectible": true,
+   "text": [
+    "Ipseity Teamup (1 Energy | 20 dmg): If Ipseity is on your field, Ipseity's next attack costs 1 less Energy.",
+    "Bot Engineer (2 Energy | 60 dmg): His bot also deals 20 damage to another enemy player of your choice.",
+    "Gybbus Dash (3 Energy | 115 dmg): He dashes up and beams you."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "gybbus.teamup",
+     "name": "Ipseity Teamup",
+     "cost": 1,
+     "damage": 20,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "gybbus.bot",
+     "name": "Bot Engineer",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "gybbus.dash",
+     "name": "Gybbus Dash",
+     "cost": 3,
+     "damage": 115,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "wiz",
+   "name": "DrunkenWiz",
+   "title": "Old Goat Unicorn",
+   "rarity": "Epic",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Hibernation (3 Energy): Choose one of your other players: it deals +30 damage for the rest of the game. Each player can only get this once.",
+    "Submarining (4 Energy | 160 dmg): Goes under the platform and deals 160 damage.",
+    "pissed on (2 Energy): A random enemy player deals 60 less damage on its next attack."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "wiz.hib",
+     "name": "Hibernation",
+     "cost": 3,
+     "damage": null,
+     "target": "ally_other",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "wiz.sub",
+     "name": "Submarining",
+     "cost": 4,
+     "damage": 160,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "wiz.pissed",
+     "name": "pissed on",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "fealthy",
+   "name": "Fealthy",
+   "title": "North American v7 Old Goat",
+   "rarity": "Epic",
+   "hp": 270,
+   "retreat": 2,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Alter Current (2 Energy | 80 dmg): PIERCE. You choose which enemy player takes the hit, even one that is protected.",
+    "v7 Old Goat (3 Energy | 115 dmg): +25 damage against a Legendary or Mythic player."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "fealthy.alter",
+     "name": "Alter Current",
+     "cost": 2,
+     "damage": 80,
+     "target": "enemy",
+     "true": false,
+     "pierce": true,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "fealthy.v7",
+     "name": "v7 Old Goat",
+     "cost": 3,
+     "damage": 115,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "maumau",
+   "name": "MauMau",
+   "title": "therealmaumau",
+   "rarity": "Epic",
+   "hp": 280,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Tracking (Passive): your other players deal +10 damage.",
+    "Advanced Survivability (Passive): MauMau takes 15 less damage from every hit.",
+    "Flank & Edash Mastery (Passive): once per game, when MauMau would be knocked out by damage, he survives with 10 HP."
+   ],
+   "moves": []
+  },
+  {
+   "key": "baxy",
+   "name": "Prime Baxy",
+   "title": "Albanian Mafia Member",
+   "rarity": "Epic",
+   "hp": 270,
+   "retreat": 2,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Total Concentration (Passive): Prime Baxy takes 10 less damage from every attack.",
+    "Snus Overdrive (3 Energy | 70 dmg): Until your next turn, Prime Baxy takes 30 less damage, and his next attack deals +30.",
+    "Michaela Boost (2 Energy | 60 dmg): Prime Baxy's next attack deals +20 damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "baxy.snus",
+     "name": "Snus Overdrive",
+     "cost": 3,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "baxy.michaela",
+     "name": "Michaela Boost",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "rdp",
+   "name": "RumDum Prime",
+   "title": "Self-Proclaimed Champion of Sweden",
+   "rarity": "Epic",
+   "hp": 280,
+   "retreat": 2,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Sweden Musketeers Assemble (Passive): while RumDum Prime and at least one of russgeb prime or Prime Baxy are on your field, each of them gets +30 HP and +30 damage on attacks. If all three are on your field, it's +70 HP, +70 damage, and each heals 20 HP at the start of your turn instead.",
+    "SuperBonus (2 Energy | 80-1000 dmg): 60% chance to deal 80. Each miss adds +50 damage and +10% hit chance (up to 3 misses: 230 at 90%); resets after a hit. 1 in 100 jackpot: 1000 damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "rdp.superbonus",
+     "name": "SuperBonus",
+     "cost": 2,
+     "damage": 80,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "russgeb",
+   "name": "russgeb prime",
+   "title": "Big Dog Banna",
+   "rarity": "Epic",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Snus Overdrive (2 Energy): russgeb prime gains 20 HP, and his attacks deal +20 damage for the rest of the game. Using it again does not stack.",
+    "Lemme Get Those Digits (3 Energy | 120 dmg): Deals 200 damage instead if Polska is on your opponent's field.",
+    "Ferocious Barking (3 Energy | 0-135 dmg): Deals 45 damage for each Female card in your deck (up to 135)."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "russgeb.snus",
+     "name": "Snus Overdrive",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "russgeb.digits",
+     "name": "Lemme Get Those Digits",
+     "cost": 3,
+     "damage": 120,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "russgeb.barking",
+     "name": "Ferocious Barking",
+     "cost": 3,
+     "damage": 135,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "alter_mod",
+   "name": "Alterschuh",
+   "title": "Chat mod Alter",
+   "rarity": "Rare",
+   "hp": 245,
+   "retreat": 2,
+   "tags": [
+    "German"
+   ],
+   "collectible": true,
+   "text": [
+    "?Mute (1 Energy | 30 dmg): The target is Stunned. Can't be used two turns in a row.",
+    "A Whole Week (2 Energy | 40 dmg): Pay once: hits the target for 40 now and again at the start of each of your turns, for free, until Alterschuh or the target is knocked out or leaves the field. Meanwhile Alterschuh can't attack other players. When the target is knocked out, Alterschuh can't attack on your next turn.",
+    "German Blood (2 Energy): Your German players get +20 HP and deal +20 damage for the rest of the game. Doesn't stack."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "alter_mod.mute",
+     "name": "?Mute",
+     "cost": 1,
+     "damage": 30,
+     "target": "enemy_unit",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": true,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "alter_mod.week",
+     "name": "A Whole Week",
+     "cost": 2,
+     "damage": 40,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "alter_mod.blood",
+     "name": "German Blood",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "babor",
+   "name": "Babor",
+   "title": "Babortex",
+   "rarity": "Rare",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Shadow Monarch Slayer (Passive): Babor's attacks deal +10 damage.",
+    "Console Player (Passive): Orbit Beam is TRUE DAMAGE and PIERCE.",
+    "Complaining There Is No Double Sense (2 Energy | 60 dmg): The target is Rooted for its next 2 turns.",
+    "Orbit Beam (3 Energy | 100 dmg): Deadly orbit beam."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "babor.complain",
+     "name": "Complaining There Is No Double Sense",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "babor.beam",
+     "name": "Orbit Beam",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": true,
+     "pierce": true,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "bobo",
+   "name": "Bobo",
+   "title": "The Moderator",
+   "rarity": "Rare",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Crashout (1 Energy): Choose one of your other players: it deals 50% more damage for your next 2 turns. When that ends, Bobo takes 50 damage.",
+    "Mod Abuse (2 Energy): The target is Silenced.",
+    "Server Diff (2 Energy): Your opponent's players deal 25% less damage on their next turn."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "bobo.crashout",
+     "name": "Crashout",
+     "cost": 1,
+     "damage": null,
+     "target": "ally_other",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "bobo.mod",
+     "name": "Mod Abuse",
+     "cost": 2,
+     "damage": null,
+     "target": "enemy_unit",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "bobo.server",
+     "name": "Server Diff",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "frozone",
+   "name": "Frozone",
+   "title": "The Greatest Discord Mod of All",
+   "rarity": "Rare",
+   "hp": 245,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Advertise (1 Energy): Frozone gains a stack: each stack makes him take 15% less damage (up to 3 stacks, 45%). Once per turn; doesn't count as Frozone's move.",
+    "Professionalism (2 Energy | 90 dmg): Neatly hits for 90 damage.",
+    "Perfect Admin (3 Energy): Every troller on the opponent's side deals 25% less damage for its next 2 turns. Non-trollers aren't affected."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "frozone.adv",
+     "name": "Advertise",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": true,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "frozone.prof",
+     "name": "Professionalism",
+     "cost": 2,
+     "damage": 90,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "frozone.admin",
+     "name": "Perfect Admin",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "rumdum",
+   "name": "RumDum",
+   "title": "The One Who Lost It All",
+   "rarity": "Rare",
+   "hp": 265,
+   "retreat": 3,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Overdue (2 Energy | 80 dmg): If the target survives, your opponent discards a random card.",
+    "All In (2 Energy | 70 dmg): Draw 2 cards. If RumDum takes damage before your next turn, he can't use All In next turn.",
+    "Gone for Good (3 Energy | 110 dmg): RumDum also takes 40 damage. If that knocks him out, draw 3 cards."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "rumdum.overdue",
+     "name": "Overdue",
+     "cost": 2,
+     "damage": 80,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "rumdum.allin",
+     "name": "All In",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "rumdum.gone",
+     "name": "Gone for Good",
+     "cost": 3,
+     "damage": 110,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "soulzz",
+   "name": "Soulzz",
+   "title": "Faxe Cola",
+   "rarity": "Rare",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Boxing Polar Bears (1 Energy | 30 dmg): The target deals 20 less damage on its next attack.",
+    "Greenland to Denmark (2 Energy | 70 dmg): PIERCE.",
+    "Tracking (3 Energy | 110 dmg): He tracks."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "soulzz.bears",
+     "name": "Boxing Polar Bears",
+     "cost": 1,
+     "damage": 30,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "soulzz.greenland",
+     "name": "Greenland to Denmark",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": true,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "soulzz.tracking",
+     "name": "Tracking",
+     "cost": 3,
+     "damage": 110,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "tjk",
+   "name": "TJK",
+   "title": "Ground Orbiter",
+   "rarity": "Rare",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Ground Orbit (2 Energy | 75 dmg): Deals 75 damage.",
+    "Engineer (Passive): while TJK is on the field, gain 1 extra Energy at the start of every other turn of yours (the first time on the turn after TJK enters)."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "tjk.ground",
+     "name": "Ground Orbit",
+     "cost": 2,
+     "damage": 75,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "alter_star",
+   "name": "Alterschuh",
+   "title": "German Up-and-Coming Star",
+   "rarity": "Common",
+   "hp": 245,
+   "retreat": 2,
+   "tags": [
+    "German"
+   ],
+   "collectible": true,
+   "text": [
+    "Alter-Dash (2 Energy | 70 dmg): HASTE.",
+    "Seal Spin (2 Energy | 60 dmg): Alterschuh takes 20 less damage until your next turn."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "alter_star.dash",
+     "name": "Alter-Dash",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": true,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "alter_star.seal",
+     "name": "Seal Spin",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "bench",
+   "name": "bench;",
+   "title": "frythegoat",
+   "rarity": "Common",
+   "hp": 210,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Bench 225lb (2 Energy | 70 dmg): The target deals 10 less damage for its next 2 turns.",
+    "Bulk (1 Energy): Transforms this card into bench; (Bulk), Stage 2. Damage stays. Counts as the same player for \"was on the field when your turn started\"."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "bench.225",
+     "name": "Bench 225lb",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "bench.bulk",
+     "name": "Bulk",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "bench2",
+   "name": "bench;",
+   "title": "Stage 2 - Bulk",
+   "rarity": "Common",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": false,
+   "text": [
+    "God Coach (Passive): while Onikiri is on your field, bench; (Bulk) gets +30 HP and his attacks deal +30 damage.",
+    "450 Bench (3 Energy | 110 dmg): A monstrous lift that deals 110 damage to the opponent."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "bench2.450",
+     "name": "450 Bench",
+     "cost": 3,
+     "damage": 110,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "cutg",
+   "name": "Cutg",
+   "title": "The Fallen",
+   "rarity": "Common",
+   "hp": 230,
+   "retreat": 2,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Fallen From Grace (Passive): Cutg's first attack each game deals +20 damage.",
+    "Blue Lock Phonk (1 Energy): Gain 1 Energy. Your opponent's next move costs 1 more Energy. Once per turn; doesn't count as Cutg's move.",
+    "Bosnian Minesweeper (2 Energy | 70 dmg): Flip a coin. Heads: the target is Stunned. Tails: Cutg also takes 20 damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "cutg.phonk",
+     "name": "Blue Lock Phonk",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": true,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "cutg.mine",
+     "name": "Bosnian Minesweeper",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "fatsy",
+   "name": "Fatsy",
+   "title": "Genji Ball Player",
+   "rarity": "Common",
+   "hp": 245,
+   "retreat": 2,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Terrible Tracking (1 Energy | 60 dmg): Flip a coin. Tails: the attack misses.",
+    "Genji Ball Crash (3 Energy | 105 dmg): Another of your players' next move this turn costs 1 less Energy.",
+    "Massive Presence (2 Energy): The next enemy attack on any of your players deals 40 less damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "fatsy.tt",
+     "name": "Terrible Tracking",
+     "cost": 1,
+     "damage": 30,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "fatsy.crash",
+     "name": "Genji Ball Crash",
+     "cost": 3,
+     "damage": 105,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "fatsy.presence",
+     "name": "Massive Presence",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "icedragon",
+   "name": "IceDragon",
+   "title": "Vice Oracle",
+   "rarity": "Common",
+   "hp": 195,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Ice Dash (1 Energy | 0 or 200 dmg): 1 in 5 chance: deals 200 damage. Otherwise IceDragon takes 60 damage.",
+    "Soothing Voice (Passive): at the start of each of your turns, your players heal 10 HP.",
+    "Vice Old Man (1 Energy): Look at 2 random cards in your opponent's hand. Once per turn; doesn't count as IceDragon's move."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "icedragon.dash",
+     "name": "Ice Dash",
+     "cost": 1,
+     "damage": 40,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "icedragon.vice",
+     "name": "Vice Old Man",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": true,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "kizzura",
+   "name": "Kizzura",
+   "title": "Ice Dragon Queen",
+   "rarity": "Common",
+   "hp": 230,
+   "retreat": 2,
+   "tags": [
+    "Female"
+   ],
+   "collectible": true,
+   "text": [
+    "Water Bend (1 Energy | 40 dmg): The target's next attack costs 1 more Energy.",
+    "Perma-Ban (3 Energy | 95 dmg): If this knocks the target out, it is BANISHED."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "kizzura.water",
+     "name": "Water Bend",
+     "cost": 1,
+     "damage": 40,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "kizzura.perma",
+     "name": "Perma-Ban",
+     "cost": 3,
+     "damage": 95,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "lunar",
+   "name": "Lunar Aurora",
+   "title": "Queen of Dawn",
+   "rarity": "Common",
+   "hp": 245,
+   "retreat": 2,
+   "tags": [
+    "Female"
+   ],
+   "collectible": true,
+   "text": [
+    "Making a Dress (1 Energy): Choose one of your other players. Until your next turn, it is Protected: attacks on that player hit Lunar instead. (PIERCE ignores this.) Once per turn; doesn't count as Lunar's move.",
+    "Queen of Dawn (2 Energy | 70 dmg): Deals 130 damage instead if the target is a Dawner."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "lunar.dress",
+     "name": "Making a Dress",
+     "cost": 1,
+     "damage": null,
+     "target": "ally_other",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": true,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "lunar.queen",
+     "name": "Queen of Dawn",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "reptide",
+   "name": "Reptide",
+   "title": "r3ptide",
+   "rarity": "Common",
+   "hp": 245,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Orbit (2 Energy | 60 dmg): A plain, reliable hit.",
+    "Deafen (3 Energy | 80 dmg): Powers up in silence: deals +10 damage for each of your turns Reptide has been on the field (up to +40). Retreating resets the count."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "reptide.orbit",
+     "name": "Orbit",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "reptide.deafen",
+     "name": "Deafen",
+     "cost": 3,
+     "damage": 80,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "timo",
+   "name": "Timo",
+   "title": "Rich Crypto Bro",
+   "rarity": "Common",
+   "hp": 210,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Money Spread (0 Energy): Gain 1 Energy. Timo takes 20 damage. Once per turn; doesn't count as Timo's move.",
+    "Timo's Balls (2 Energy): Your opponent's players deal 15 less damage on their next turn.",
+    "Outsourced Assets (3 Energy | 100 dmg): Deals 100 damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "timo.money",
+     "name": "Money Spread",
+     "cost": 0,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": true,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "timo.balls",
+     "name": "Timo's Balls",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "timo.outsourced",
+     "name": "Outsourced Assets",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "toasty",
+   "name": "Toasty",
+   "title": "ToastOfToasts",
+   "rarity": "Common",
+   "hp": 245,
+   "retreat": 2,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Cope (Passive): when one of your own players is knocked out, Toasty's next attack deals +20 damage (stacks up to +60).",
+    "Ragebait (2 Energy | 60 dmg): The target's next attack costs 1 more Energy.",
+    "Yap (3 Energy | 100 dmg): Your other players deal +10 damage on your next turn."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "toasty.ragebait",
+     "name": "Ragebait",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "toasty.yap",
+     "name": "Yap",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "drexico",
+   "name": "Drexico",
+   "title": "Head of Cybersecurity",
+   "rarity": "Mythic",
+   "hp": 360,
+   "retreat": 3,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Jonbird Buff (Passive): Drexico's attacks are TRUE DAMAGE against players that are immune or have a miss chance.",
+    "Social Engineering (2 Energy | 70 dmg): The target is MARKED until the end of your next turn: it takes +20 damage from every attack.",
+    "Dash Technique (4 Energy | 140 dmg): If the target is MARKED, this also deals 20 damage to each other enemy player."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "drexico.social",
+     "name": "Social Engineering",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "drexico.dash",
+     "name": "Dash Technique",
+     "cost": 4,
+     "damage": 140,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "fynxa",
+   "name": "Fynxa",
+   "title": "The Awakened One",
+   "rarity": "Legendary",
+   "hp": 300,
+   "retreat": 3,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Giant Slayer (Passive): Fynxa deals +20 damage to players with 335 or more max HP.",
+    "True Strike (3 Energy | 40-100 dmg): TRUE DAMAGE. Deals 40% of the target's current HP, at least 40 and at most 100 (rounded to 5).",
+    "Inspire (2 Energy | 40 dmg): Each of your players on the field deals +15 damage on its next attack (until the end of your next turn)."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "fynxa.strike",
+     "name": "True Strike",
+     "cost": 3,
+     "damage": 80,
+     "target": "enemy",
+     "true": true,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "fynxa.inspire",
+     "name": "Inspire",
+     "cost": 2,
+     "damage": 40,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "ghost",
+   "name": "Ghost",
+   "title": "Ghost Dash Creator",
+   "rarity": "Legendary",
+   "hp": 280,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Aura Presence (Passive): At the end of each round, every enemy player takes 10 damage.",
+    "Coaching (1 Energy): Heal one of your other players 40 HP. Can't be used again for your next 3 turns.",
+    "Ghost Dash (3 Energy | 115 dmg): A standard attack."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "ghost.coach",
+     "name": "Coaching",
+     "cost": 1,
+     "damage": null,
+     "target": "ally_other",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "ghost.dash",
+     "name": "Ghost Dash",
+     "cost": 3,
+     "damage": 115,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "senzawa",
+   "name": "Senzawa",
+   "title": "Cookie Monster",
+   "rarity": "Epic",
+   "hp": 270,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Ping Issues (Passive): Every attack against Senzawa has a 1 in 8 chance to miss.",
+    "Piano Music (2 Energy): Heal each of your other players on the field 30 HP.",
+    "Firebending (3 Energy | 100 dmg): The target burns: it takes 10 damage at the start of each of its next 2 turns."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "senzawa.piano",
+     "name": "Piano Music",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "senzawa.fire",
+     "name": "Firebending",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "michaela",
+   "name": "Michaela",
+   "title": "Loyal Wife & Mother",
+   "rarity": "Common",
+   "hp": 230,
+   "retreat": 2,
+   "tags": [
+    "Female"
+   ],
+   "collectible": true,
+   "text": [
+    "Back to Romania (2 Energy): Heal your most damaged player 80 HP.",
+    "Family Support (2 Energy): Once per game: for the rest of the match, your healing effects heal 20% more.",
+    "Resilient (2 Energy): Until your next turn, Michaela takes 30% less damage while you have another player on the field."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "michaela.romania",
+     "name": "Back to Romania",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "michaela.family",
+     "name": "Family Support",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": true
+    },
+    {
+     "index": 2,
+     "key": "michaela.resilient",
+     "name": "Resilient",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "primefealthy",
+   "name": "Prime Fealthy",
+   "title": "Original Goat",
+   "rarity": "Mythic",
+   "hp": 365,
+   "retreat": 3,
+   "tags": [
+    "Troller"
+   ],
+   "collectible": true,
+   "text": [
+    "Penalty Avoidance (Passive): Prime Fealthy never takes more than 150 damage from one attack. This applies to True damage too.",
+    "Cursed Speech (2 Energy | 80 dmg): The target deals 30 less damage on its next attack.",
+    "Team Player (2 Energy): For your next 3 turns (this one included), your other players deal +20 damage and take 20 less damage. Can't be used again while active."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "primefealthy.cursed",
+     "name": "Cursed Speech",
+     "cost": 2,
+     "damage": 80,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "primefealthy.team",
+     "name": "Team Player",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "ywan",
+   "name": "Ywan18",
+   "title": ".ywan.",
+   "rarity": "Common",
+   "hp": 220,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Quick Dash (1 Energy | 40 dmg): Can be used on the turn Ywan18 enters the field.",
+    "Focus (1 Energy): Ywan18's next attack deals +50 damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "ywan.dash",
+     "name": "Quick Dash",
+     "cost": 1,
+     "damage": 40,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": true,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "ywan.focus",
+     "name": "Focus",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "r0s3",
+   "name": "r0s3",
+   "title": "Dawner Operative",
+   "rarity": "Common",
+   "hp": 195,
+   "retreat": 2,
+   "tags": [
+    "Dawner"
+   ],
+   "collectible": true,
+   "text": [
+    "Bad Internet (Passive): At the start of your turn, 1 in 4 chance r0s3 crashes: he goes back into your deck at a random spot, fully healed, and costs no Energy to place next time.",
+    "Orbit (3 Energy | 100 dmg): Orbits like Jupiter.",
+    "Weed (2 Energy): r0s3 heals back to full HP. Twice each time he is on the field (placing him again resets it)."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "r0s3.orbit",
+     "name": "Orbit",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "r0s3.weed",
+     "name": "Weed",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "l3broso",
+   "name": "L3BROSO",
+   "title": "lebroso0",
+   "rarity": "Common",
+   "hp": 205,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Fast Learner (Passive): At the end of each round, L3BROSO gets +10 HP and +10 damage (doubled while russgeb prime or Dr. Gybbus is on either field), up to +60.",
+    "Flank Dash (3 Energy | 95 dmg): Flank dashes."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "l3broso.dash",
+     "name": "Flank Dash",
+     "cost": 3,
+     "damage": 95,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "oldelias",
+   "name": "Old Elias",
+   "title": "Eliasnr8",
+   "rarity": "Common",
+   "hp": 235,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Swedish Rage (3 Energy | 100 dmg): Pure Swedish rage.",
+    "Panda Bamboo (2 Energy): Old Elias heals 80 HP.",
+    "Back to Prime (3 Energy): Transforms this card into Prime Elias. Damage stays."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "oldelias.rage",
+     "name": "Swedish Rage",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "oldelias.bamboo",
+     "name": "Panda Bamboo",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "oldelias.prime",
+     "name": "Back to Prime",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "tailung",
+   "name": "Tai Lung",
+   "title": "tailung0873",
+   "rarity": "Rare",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "I've Had a Vision (3 Energy): Once per game: your strongest knocked-out player comes back from your graveyard at half HP (onto the field if there's room, else to your hand).",
+    "Warehouse Worker (2 Energy | 90 dmg): Toes who know."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "tailung.vision",
+     "name": "I've Had a Vision",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": true
+    },
+    {
+     "index": 1,
+     "key": "tailung.warehouse",
+     "name": "Warehouse Worker",
+     "cost": 2,
+     "damage": 90,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "reptidepro",
+   "name": "Reptide Pro",
+   "title": "r3ptide",
+   "rarity": "Rare",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Contacts in Dawn (2 Energy): Your Dawner players (r0s3) deal +50 damage on their next attack.",
+    "Deafen with Music (3 Energy | 100 dmg): Reptide Pro also gets +20 HP and +20 damage for the rest of the match (up to 2 times).",
+    "Russgebs Ghost (2 Energy): Every russgeb prime on the field (both sides) permanently loses 100 max HP and deals 100 less damage. Once per russgeb."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "reptidepro.dawn",
+     "name": "Contacts in Dawn",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "reptidepro.deafen",
+     "name": "Deafen with Music",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "reptidepro.ghost",
+     "name": "Russgebs Ghost",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "primeelias",
+   "name": "Prime Elias",
+   "title": "Former #1 Swedish Person",
+   "rarity": "Rare",
+   "hp": 250,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Prime Power (Passive): At the end of each of your turns, Prime Elias gets +20 HP and +10 damage, up to +60 HP and +40 damage.",
+    "Viking Rage (4 Energy | 140 dmg): His prime fury.",
+    "Back to Prime (3 Energy | 105 dmg): Elite Swedish power."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "primeelias.viking",
+     "name": "Viking Rage",
+     "cost": 4,
+     "damage": 140,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "primeelias.back",
+     "name": "Back to Prime",
+     "cost": 3,
+     "damage": 105,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "jayu",
+   "name": "Jayu",
+   "title": "GBC Sponsor",
+   "rarity": "Epic",
+   "hp": 275,
+   "retreat": 2,
+   "tags": [
+    "Female"
+   ],
+   "collectible": true,
+   "text": [
+    "Playing for Vibes (2 Energy): Until your next turn, your players take 30% less damage.",
+    "Sugar Mommy (2 Energy): Next turn you get +1 Energy (+2 if Bucas is on your field).",
+    "BBL Master (3 Energy): One of your other players gets +30% max HP and deals 30% more damage for your next 2 turns."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "jayu.vibes",
+     "name": "Playing for Vibes",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "jayu.sugar",
+     "name": "Sugar Mommy",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "jayu.bbl",
+     "name": "BBL Master",
+     "cost": 3,
+     "damage": null,
+     "target": "ally_other",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "bucas",
+   "name": "Bucas",
+   "title": "GBC Financier",
+   "rarity": "Epic",
+   "hp": 270,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Bucas Dash (3 Energy | 120 dmg): Totally not a modified Ghost dash.",
+    "Sugar Daddy (2 Energy): Next turn you get +1 Energy (+2 if Jayu is on your field).",
+    "Clipfarmer (2 Energy | 100 dmg): Flip a coin. Heads: deal 100 damage. Tails: Bucas takes 50 damage instead."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "bucas.dash",
+     "name": "Bucas Dash",
+     "cost": 3,
+     "damage": 120,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "bucas.sugar",
+     "name": "Sugar Daddy",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "bucas.clip",
+     "name": "Clipfarmer",
+     "cost": 2,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "tyler",
+   "name": "Tyler",
+   "title": "Former Doomsumo Shitter",
+   "rarity": "Legendary",
+   "hp": 290,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Perfect Diag (Passive): At the start of your turn, Tyler heals 15 HP.",
+    "Prodigy (Passive): After an enemy player hits Tyler, that player deals 20 less damage to Tyler for the rest of the match.",
+    "Random Beam (2 Energy | 60-100 dmg): Deals a random 60 to 100 damage, in steps of 5."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "tyler.beam",
+     "name": "Random Beam",
+     "cost": 2,
+     "damage": 80,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "moosnuckle",
+   "name": "Moosnuckle",
+   "title": "The Goat of the Modern Day",
+   "rarity": "Mythic",
+   "hp": 385,
+   "retreat": 3,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Cripple (Passive): When Perfect Positioning hits, 25% chance the target is stunned.",
+    "Perfect Positioning (2 Energy | 75 dmg): Then, until your next turn, attacks on Moosnuckle have a 35% chance to miss.",
+    "The NA Manager (2 Energy): Skip the move for a team heal: all your players heal 60 HP."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "moosnuckle.dodge",
+     "name": "Perfect Positioning",
+     "cost": 2,
+     "damage": 75,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "moosnuckle.manager",
+     "name": "The NA Manager",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "gybbuslegend",
+   "name": "DR Gybbus",
+   "title": "Amazing Support",
+   "rarity": "Legendary",
+   "hp": 270,
+   "retreat": 2,
+   "tags": [
+    "French"
+   ],
+   "collectible": true,
+   "text": [
+    "Coacher of All (Passive): Your other players get +15 max HP and deal +10 damage.",
+    "French Accent (Passive): At the start of your turn, your other players heal 15 HP.",
+    "True Gybbus Dash (4 Energy | 200 dmg): 90% chance to deal 200 damage, 10% chance DR Gybbus knocks himself out."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "gybbuslegend.dash",
+     "name": "True Gybbus Dash",
+     "cost": 4,
+     "damage": 200,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "gespio",
+   "name": "Gespio",
+   "title": "Juujika",
+   "rarity": "Legendary",
+   "hp": 300,
+   "retreat": 3,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Roleplay (Passive): Attacks on Gespio have a 20% chance to miss.",
+    "Hidden Talent (2 Energy | 60-130 dmg): Deals a random 60 to 130 damage, in steps of 5.",
+    "Quick Escape (3 Energy | 110 dmg): Then Gespio alt F4s back to your hand (his damage stays). Re-placing him costs Energy as usual."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "gespio.talent",
+     "name": "Hidden Talent",
+     "cost": 2,
+     "damage": 95,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "gespio.escape",
+     "name": "Quick Escape",
+     "cost": 3,
+     "damage": 110,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "currykiri",
+   "name": "CurryKiri",
+   "title": "Indian Power Player",
+   "rarity": "Common",
+   "hp": 240,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Throwing Poop (1 Energy): The target is stunned for 1 turn, and CurryKiri can't attack on your next turn. Not two turns in a row.",
+    "Curry (3 Energy): Heals one of your players of your choice (including CurryKiri) 100 HP.",
+    "Mexican Cartel (3 Energy | 100 dmg): Calls in the Mexican cartel."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "currykiri.poop",
+     "name": "Throwing Poop",
+     "cost": 1,
+     "damage": null,
+     "target": "enemy_unit",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": true,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "currykiri.curry",
+     "name": "Curry",
+     "cost": 3,
+     "damage": null,
+     "target": "ally",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "currykiri.cartel",
+     "name": "Mexican Cartel",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "polski",
+   "name": "Polski",
+   "title": "Who is this?",
+   "rarity": "Common",
+   "hp": 195,
+   "retreat": 2,
+   "tags": [
+    "Female"
+   ],
+   "collectible": true,
+   "text": [
+    "Catfish (2 Energy): The target deals 30% less damage on its next turn.",
+    "Seduction (2 Energy): The target is stunned for 1 turn. Not two turns in a row.",
+    "Just shit. (3 Energy | 50 dmg): 1 in 3 each: Polski heals 50 HP, deals 50 damage, or nothing happens."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "polski.catfish",
+     "name": "Catfish",
+     "cost": 2,
+     "damage": null,
+     "target": "enemy_unit",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "polski.seduction",
+     "name": "Seduction",
+     "cost": 2,
+     "damage": null,
+     "target": "enemy_unit",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": true,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "polski.shit",
+     "name": "Just shit.",
+     "cost": 3,
+     "damage": 50,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "pilotsoulzz",
+   "name": "Pilot Soulzz",
+   "title": "Faxe Cola",
+   "rarity": "Epic",
+   "hp": 275,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Cobra Manouver (Passive): Attacks on Pilot Soulzz have a 20% chance to miss.",
+    "Arctic Mauling (3 Energy | 110 dmg): The target deals 20% less damage on its next turn.",
+    "War Thunder Pilot (4 Energy | 200 dmg): Then Pilot Soulzz can't attack on your next turn."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "pilotsoulzz.maul",
+     "name": "Arctic Mauling",
+     "cost": 3,
+     "damage": 110,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "pilotsoulzz.missile",
+     "name": "War Thunder Pilot",
+     "cost": 4,
+     "damage": 200,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "moob",
+   "name": "moob",
+   "title": ".moob_",
+   "rarity": "Common",
+   "hp": 230,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Being Cute (Passive): While moob is on the field, your players take 10% less damage.",
+    "DoomSumo (Passive): moob loses 20 HP at the start of each of your turns.",
+    "Simp (1 Energy): Each Female player on your field gets +30 max HP and +30 damage for the rest of the match (once per player)."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "moob.simp",
+     "name": "Simp",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "sultan",
+   "name": "Sultan",
+   "title": "The Fallen Miracle",
+   "rarity": "Epic",
+   "hp": 255,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Reflection (Passive): 20% of attack damage Sultan takes goes back to the attacker.",
+    "Washed Brad Dash (3 Energy | 100 dmg): No longer in his prime.",
+    "Back to Prime SULTAN (3 Energy): Transforms this card into Sultan Prime. Damage stays."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "sultan.dash",
+     "name": "Washed Brad Dash",
+     "cost": 3,
+     "damage": 100,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "sultan.prime",
+     "name": "Back to Prime SULTAN",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "sultanprime",
+   "name": "Sultan Prime",
+   "title": "The Fallen Miracle",
+   "rarity": "Epic",
+   "hp": 290,
+   "retreat": 2,
+   "tags": [],
+   "collectible": false,
+   "text": [
+    "True Reflection (Passive): 30% of attack damage Sultan Prime takes goes back to the attacker.",
+    "Top 5 Eu (Passive): Your other players take 10% less damage.",
+    "Brad Dash (4 Energy | 150 dmg): The blade speaks for itself."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "sultanprime.dash",
+     "name": "Brad Dash",
+     "cost": 4,
+     "damage": 150,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "alwayslucky",
+   "name": "alwayslucky",
+   "title": "Serbian Rein Main",
+   "rarity": "Rare",
+   "hp": 250,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Always Lucky (1 Energy): Until your next turn, attacks on your players have an extra 10% chance to miss.",
+    "Normal (2 Energy): Enemy players on the field get -20 max HP and -20 damage (up to 3 uses), undone when alwayslucky is knocked out.",
+    "BEST REIN SERBIA (3 Energy | 120 dmg): Best Rein Serbia."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "alwayslucky.lucky",
+     "name": "Always Lucky",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "alwayslucky.normal",
+     "name": "Normal",
+     "cost": 2,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "alwayslucky.rein",
+     "name": "BEST REIN SERBIA",
+     "cost": 3,
+     "damage": 120,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "qtip",
+   "name": "Qtip",
+   "title": "Former GOAT of TF2 Dodgeball",
+   "rarity": "Epic",
+   "hp": 260,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Fast Learner (Passive): Qtip deals +10 damage after each round on the field, up to +30.",
+    "Qtip Dash (1 Energy | 50 dmg): Teams mode special.",
+    "Teams Champion (2 Energy | 70+ dmg): Deals 70 damage, +10 for each of your other players on the field.",
+    "Trio: if Qtip, Darknorth (Brett) and Prime Fealthy are all in your deck, each of them deals +15 damage."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "qtip.dash",
+     "name": "Qtip Dash",
+     "cost": 1,
+     "damage": 50,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "qtip.champ",
+     "name": "Teams Champion",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "cryptlocker",
+   "name": "CryptLocker",
+   "title": "Hardstuck Prime",
+   "rarity": "Epic",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "War Thunder (Passive): +10 damage for every 40 HP CryptLocker is missing, up to +50.",
+    "R77I (2 Energy | 70 dmg): Usable twice per turn: the first R77I each turn lets CryptLocker act again.",
+    "Locker (3 Energy): The target is stunned for 1 turn."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "cryptlocker.r77",
+     "name": "R77I",
+     "cost": 2,
+     "damage": 70,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "cryptlocker.locker",
+     "name": "Locker",
+     "cost": 3,
+     "damage": null,
+     "target": "enemy_unit",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "nachos",
+   "name": "Nachos",
+   "title": "The Seeker",
+   "rarity": "Epic",
+   "hp": 265,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Perfect Air (2 Energy | 60 dmg): An air attack.",
+    "Full Track (3 Energy): Until your next turn, your players take 30 less damage from each hit.",
+    "Max Orbit (3 Energy): Until your next turn, attacks on Nachos have a 40% chance to miss, and a missed attack hits the attacker instead."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "nachos.air",
+     "name": "Perfect Air",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "nachos.track",
+     "name": "Full Track",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 2,
+     "key": "nachos.orbit",
+     "name": "Max Orbit",
+     "cost": 3,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "tosh",
+   "name": "Tosh",
+   "title": "Femboy Tosh",
+   "rarity": "Rare",
+   "hp": 250,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Supportive Hater (Passive): When another one of your players is knocked out, Tosh heals 30 HP.",
+    "Russian Rage (2 Energy | 60+ dmg): Deals 60 damage, +40 if you have 2 or more fallen players in your graveyard.",
+    "Internet Sacrifice (1 Energy): Your strongest fallen player goes from your graveyard back to your hand at 50% HP."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "tosh.rage",
+     "name": "Russian Rage",
+     "cost": 2,
+     "damage": 60,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "tosh.sacrifice",
+     "name": "Internet Sacrifice",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  },
+  {
+   "key": "azna",
+   "name": "Azna",
+   "title": "Unc of the Summer",
+   "rarity": "Rare",
+   "hp": 255,
+   "retreat": 2,
+   "tags": [],
+   "collectible": true,
+   "text": [
+    "Unc (Passive): At the start of your turn, Azna heals 20 HP.",
+    "Safe Fire (3 Energy | 90 dmg): The target also burns for 10 at the start of each of its next 3 turns.",
+    "Middle Finger (1 Energy | 20 dmg): Middle finger in chat: 20 damage to every enemy player."
+   ],
+   "moves": [
+    {
+     "index": 0,
+     "key": "azna.fire",
+     "name": "Safe Fire",
+     "cost": 3,
+     "damage": 90,
+     "target": "enemy",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    },
+    {
+     "index": 1,
+     "key": "azna.finger",
+     "name": "Middle Finger",
+     "cost": 1,
+     "damage": null,
+     "target": "none",
+     "true": false,
+     "pierce": false,
+     "haste": false,
+     "extra": false,
+     "cooldown": false,
+     "once": false
+    }
+   ]
+  }
+ ]
+}

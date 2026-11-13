@@ -1,0 +1,69 @@
+{
+ "patch": "patch131",
+ "file": "patch131.f16.bin",
+ "dtype": "float16",
+ "tensors": [
+  {
+   "name": "W0",
+   "shape": [
+    813,
+    768
+   ],
+   "offset": 0
+  },
+  {
+   "name": "b0",
+   "shape": [
+    768
+   ],
+   "offset": 1248768
+  },
+  {
+   "name": "W1",
+   "shape": [
+    768,
+    512
+   ],
+   "offset": 1250304
+  },
+  {
+   "name": "b1",
+   "shape": [
+    512
+   ],
+   "offset": 2036736
+  },
+  {
+   "name": "W2",
+   "shape": [
+    512,
+    512
+   ],
+   "offset": 2037760
+  },
+  {
+   "name": "b2",
+   "shape": [
+    512
+   ],
+   "offset": 2562048
+  },
+  {
+   "name": "Wp",
+   "shape": [
+    512,
+    615
+   ],
+   "offset": 2563072
+  },
+  {
+   "name": "bp",
+   "shape": [
+    615
+   ],
+   "offset": 3192832
+  }
+ ],
+ "obs_size": 813,
+ "n_actions": 615
+}

@@ -11,6 +11,7 @@ export const mythicShade = /* glsl */ `
 uniform sampler2D uStamp;
 uniform vec4 uStampRect;
 uniform vec2 uStampTexel;
+uniform float uStampOn;
 
 vec3 thinFilm(float phase) {
   // crimson -> magenta -> violet, never warm enough to turn the blacks brown
@@ -77,7 +78,7 @@ vec3 shade(vec2 uv, Surf s) {
   // the art), a thin red foil rim, and the number pressed into the plate in red foil (the
   // bevel is inverted: the glyphs sit lower than the plate).
   vec2 st = (uv - uStampRect.xy) / (uStampRect.zw - uStampRect.xy);
-  if (st.x > 0.0 && st.x < 1.0 && st.y > 0.0 && st.y < 1.0) {
+  if (uStampOn > 0.001 && st.x > 0.0 && st.x < 1.0 && st.y > 0.0 && st.y < 1.0) {
     vec4 sm = texture2D(uStamp, st);
     float hx = texture2D(uStamp, st + vec2(uStampTexel.x, 0.0)).g - texture2D(uStamp, st - vec2(uStampTexel.x, 0.0)).g;
     float hy = texture2D(uStamp, st + vec2(0.0, uStampTexel.y)).g - texture2D(uStamp, st - vec2(0.0, uStampTexel.y)).g;
@@ -88,8 +89,8 @@ vec3 shade(vec2 uv, Surf s) {
                  + vec3(0.55, 0.05, 0.03) * (0.65 + 0.55 * sat1(dot(Ns, keyL())));
     vec3 plateCol = vec3(0.012, 0.004, 0.005) + envSpec(s.Ng, s.V, vec3(0.04), 0.08) * 0.8
                   + keySpec(s.Ng, s.V, vec3(0.04), 0.1) * 0.6;
-    col = mix(col, plateCol, sm.b);
-    col = mix(col, foilCol, max(sm.r, sm.a * 0.9));
+    col = mix(col, plateCol, sm.b * uStampOn);
+    col = mix(col, foilCol, max(sm.r, sm.a * 0.9) * uStampOn);
   }
   return col;
 }

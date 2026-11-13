@@ -2,19 +2,23 @@
 //   - mouse hover over the card tilts it towards the pointer
 //   - press and drag anywhere near the card grabs it and spins it (velocity carried on release)
 //   - a short tap / click on the card flips it
+// Options: rect() gives the object's screen rectangle (default: the viewer's card), enabled()
+// switches the whole thing off while another screen or mode owns the canvas.
 
 const TAP_MOVE = 8; // px
 const TAP_TIME = 320; // ms
 
-export function attachPointer(canvas, motion, stage, { onTap } = {}) {
+export function attachPointer(canvas, motion, stage, { onTap, rect, enabled = () => true } = {}) {
   let down = null;
   const samples = [];
 
-  const cardRect = () => {
-    const h = stage.cardPx;
-    const w = h * 0.727;
-    return { cx: stage.center.x, cy: stage.center.y, hw: w / 2, hh: h / 2 };
-  };
+  const cardRect =
+    rect ??
+    (() => {
+      const h = stage.cardPx;
+      const w = h * 0.727;
+      return { cx: stage.center.x, cy: stage.center.y, hw: w / 2, hh: h / 2 };
+    });
 
   const near = (x, y, pad = 1.15) => {
     const r = cardRect();
@@ -22,6 +26,7 @@ export function attachPointer(canvas, motion, stage, { onTap } = {}) {
   };
 
   canvas.addEventListener("pointerdown", (e) => {
+    if (!enabled()) return;
     if (!near(e.clientX, e.clientY, 1.35)) return;
     canvas.setPointerCapture(e.pointerId);
     down = { id: e.pointerId, x: e.clientX, y: e.clientY, t: performance.now(), moved: false };
@@ -52,7 +57,7 @@ export function attachPointer(canvas, motion, stage, { onTap } = {}) {
       }
       return;
     }
-    if (e.pointerType === "mouse") {
+    if (e.pointerType === "mouse" && enabled()) {
       const r = cardRect();
       const nx = (e.clientX - r.cx) / r.hw;
       const ny = (e.clientY - r.cy) / r.hh;
@@ -66,7 +71,7 @@ export function attachPointer(canvas, motion, stage, { onTap } = {}) {
   const end = (e) => {
     if (!down || e.pointerId !== down.id) return;
     if (down.moved) motion.endDrag();
-    else if (performance.now() - down.t < TAP_TIME && near(e.clientX, e.clientY, 1.0)) onTap?.();
+    else if (performance.now() - down.t < TAP_TIME && near(e.clientX, e.clientY, 1.0)) onTap?.(e);
     down = null;
   };
   canvas.addEventListener("pointerup", end);

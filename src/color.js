@@ -17,3 +17,11 @@ export function oklchToLinear(l, c, hDeg) {
   ];
   return rgb.map((v) => Math.max(0, v));
 }
+
+// "oklch(84% 0.01 215)" -> linear sRGB [r, g, b]
+export function cssOklchToLinear(css) {
+  const m = /oklch\(\s*([\d.]+)(%?)\s+([\d.]+)\s+([\d.]+)/.exec(css);
+  if (!m) return [1, 1, 1];
+  const l = Number(m[1]) / (m[2] ? 100 : 1);
+  return oklchToLinear(l, Number(m[3]), Number(m[4]));
+}

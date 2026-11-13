@@ -19,6 +19,9 @@ uniform vec3 uAccent;
 uniform vec3 uGreen;
 uniform vec2 uCenter;     // card centre in pixels (from bottom-left)
 uniform float uCardH;     // card height in pixels
+uniform float uDim;       // 0..1: the room's lights going down (pack reveals)
+uniform vec3 uGlow;       // extra light pooled round the centre (pack reveals), linear
+uniform vec3 uTint;       // the whole room taking a reveal's colour (pack reveals), linear
 varying vec2 vUv;
 
 float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
@@ -48,13 +51,20 @@ void main() {
     vec2 gd = abs(fract(vec2(gx, gz)) - 0.5) / fwidth(vec2(gx, gz));
     float line = 1.0 - min(min(gd.x, gd.y), 1.0);
     float fade = smoothstep(0.0, 0.25, depth) * exp(-z * 0.35);
-    col += uGreen * line * fade * 0.05;
+    float tintA = min(1.0, max(uTint.r, max(uTint.g, uTint.b)) * 2.0);
+    vec3 lineCol = mix(uGreen, uTint / max(max(uTint.r, max(uTint.g, uTint.b)), 1e-3), tintA);
+    col += lineCol * line * fade * (0.05 + 0.25 * tintA);
+    col += uTint * fade * 0.12;
     // pool of light under the card
     col += vec3(0.06, 0.065, 0.07) * exp(-pow(p.x / 0.45, 2.0) - pow(depth / 0.18, 2.0)) * 0.5;
     col += uAccent * 0.025 * exp(-pow(p.x / 0.5, 2.0) - pow(depth / 0.1, 2.0));
   }
   // neon horizon line
   col += uGreen * 0.05 * exp(-pow((p.y - horizon) * 90.0, 2.0)) * exp(-p.x * p.x * 0.5);
+
+  col *= 1.0 - uDim * 0.82;
+  col += uGlow * exp(-dot(p, p) * 1.6) * 0.12;
+  col += uTint * (0.05 + 0.1 * exp(-dot(p, p) * 0.4));
 
   // vignette
   vec2 q = vUv - 0.5;
@@ -79,6 +89,9 @@ export function createBackdrop() {
       uGreen: { value: new THREE.Color(0.32, 0.8, 0.5) },
       uCenter: { value: new THREE.Vector2(0, 0) },
       uCardH: { value: 500 },
+      uDim: { value: 0 },
+      uGlow: { value: new THREE.Color(0, 0, 0) },
+      uTint: { value: new THREE.Color(0, 0, 0) },
     },
   });
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);

@@ -83,11 +83,19 @@ button {
   position: fixed;
   inset: 0;
   pointer-events: none;
+}
+.screen {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  pointer-events: none;
 }
-#app > * {
+.screen[hidden] {
+  display: none;
+}
+.screen > * {
   pointer-events: auto;
 }
 
@@ -106,23 +114,52 @@ button {
   grid-area: brand;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   min-height: 44px;
+}
+.brand .mark {
+  display: inline-flex;
+  margin-right: 6px;
   color: var(--green);
-  text-decoration: none;
 }
 .brand svg {
   width: 26px;
   height: 26px;
   filter: drop-shadow(0 0 10px oklch(79% 0.132 158 / 0.35));
 }
-.brand span {
-  color: var(--fg);
-  font-size: 0.8rem;
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 10px;
+  color: var(--muted);
+  font-size: 0.78rem;
   font-weight: 750;
   font-stretch: 75%;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.tab[aria-current="page"] {
+  color: var(--fg);
+}
+.tab[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: calc(10px + 0.2em);
+  bottom: 8px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--green);
+  box-shadow: 0 0 10px oklch(79% 0.132 158 / 0.6);
+}
+@media (hover: hover) {
+  .tab:hover {
+    color: var(--fg);
+  }
 }
 .count {
   grid-area: count;
@@ -369,6 +406,142 @@ button {
 
 .ui-hidden #app {
   display: none;
+}
+
+/* ---------- pack screen ---------- */
+.icon-btn {
+  grid-area: count;
+  justify-self: end;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--soft);
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+.icon-btn[aria-pressed="false"] {
+  color: var(--muted);
+}
+@media (hover: hover) {
+  .icon-btn:hover {
+    background: oklch(100% 0 0 / 0.06);
+    color: var(--fg);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.pack-dock {
+  display: grid;
+}
+.pack-dock > * {
+  grid-area: 1 / 1;
+  transition: opacity 0.25s var(--ease-out), visibility 0.25s;
+}
+.pack-dock[data-mode="idle"] .reveal-actions,
+.pack-dock[data-mode="reveal"] .types,
+.pack-dock[data-mode="opening"] > * {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.types {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+}
+.chip {
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px 2px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.chip-label {
+  font-size: 0.66rem;
+  font-weight: 750;
+  font-stretch: 72%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cost {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.7rem;
+  font-weight: 650;
+  font-stretch: 80%;
+  font-variant-numeric: tabular-nums;
+  color: var(--soft);
+}
+.cost i {
+  font-style: normal;
+  font-size: 0.6rem;
+  color: var(--tc);
+}
+.cost.free {
+  color: var(--muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.chip[aria-checked="true"] {
+  color: var(--fg);
+  border-color: color-mix(in oklch, var(--tc) 55%, transparent);
+  background: color-mix(in oklch, var(--tc) 12%, transparent);
+  box-shadow: 0 0 18px -6px var(--tc), 0 1px 0 oklch(100% 0 0 / 0.05) inset;
+}
+@media (hover: hover) {
+  .chip:hover {
+    color: var(--fg);
+  }
+}
+
+.reveal-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.reveal-actions .btn {
+  flex: 0 1 200px;
+  flex-direction: row;
+  gap: 8px;
+  color: var(--fg);
+}
+.btn.primary {
+  background: var(--green);
+  color: oklch(14% 0.02 160);
+  box-shadow: 0 0 22px -6px var(--green);
+}
+@media (hover: hover) {
+  .btn.primary:hover {
+    background: color-mix(in oklch, var(--green) 88%, white);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

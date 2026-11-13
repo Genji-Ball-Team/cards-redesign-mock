@@ -17,10 +17,10 @@ const FRONT_SHADES = {
   mythic: mythicShade,
 };
 
-// Builds every card material. Light, time and noise uniforms are the same objects in all of
-// them, so updating one value updates every material.
-export function createMaterials({ noiseA, noiseB }) {
-  const shared = {
+// The room's lights and time, as uniforms. The pack uses the same set so it sits in the same
+// light as the cards.
+export function createLightUniforms({ noiseA, noiseB }) {
+  return {
     uTime: { value: 0 },
     uKeyDir: { value: new THREE.Vector3(-0.45, 0.55, 0.7).normalize() },
     uKeyCol: { value: new THREE.Color(1.0, 0.96, 0.9) },
@@ -33,8 +33,14 @@ export function createMaterials({ noiseA, noiseB }) {
     uDepth: { value: 0.11 },
     uAccent: { value: new THREE.Color(1, 1, 1) },
   };
+}
 
-  // per-card values, also shared between the five fronts (only one is drawn at a time)
+// Builds every card material. Light, time and noise uniforms are the same objects in all of
+// them, so updating one value updates every material.
+export function createMaterials(noise) {
+  const shared = createLightUniforms(noise);
+
+  // this card's values, shared between its five fronts (only one is drawn at a time)
   const card = {
     uArt: { value: null },
     uMap: { value: null },
@@ -45,6 +51,7 @@ export function createMaterials({ noiseA, noiseB }) {
     uStamp: { value: null },
     uStampRect: { value: new THREE.Vector4(0.06, 0.035, 0.27, 0.08) },
     uStampTexel: { value: new THREE.Vector2(1 / 256, 1 / 96) },
+    uStampOn: { value: 1 }, // 0 hides the print stamp until the reveal stamps it on
     uCornerR: { value: CORNER_R },
   };
 

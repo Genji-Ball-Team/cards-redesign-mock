@@ -1,14 +1,15 @@
-import { icons, logo } from "./icons.js";
+import { icons } from "./icons.js";
+import { navHtml, bindNav } from "./nav.js";
 import { CARDS, RARITIES, rarityById, printLabel } from "../data/cards.js";
 
-// Header (mark, card name) and the bottom dock (rarity strip, prev / flip / back / depth / next,
+// Header (nav, card name) and the bottom dock (rarity strip, prev / flip / depth / next,
 // plus a tilt button where the browser needs permission for motion sensors).
 // The dock is the only interactive chrome; it never overlaps the card box.
 
 export function createControls(root, handlers) {
   root.innerHTML = `
     <header class="top">
-      <a class="brand" href="./" aria-label="Genji Ball Cards">${logo}<span>Cards</span></a>
+      ${navHtml("cards")}
       <div class="name" aria-live="polite">
         <span class="rarity-tag"></span>
         <h1 class="card-name"></h1>
@@ -21,7 +22,6 @@ export function createControls(root, handlers) {
       <div class="actions">
         <button class="btn" data-act="prev" aria-label="Previous card">${icons.prev}<span>Prev</span></button>
         <button class="btn" data-act="flip" aria-label="Flip card" aria-pressed="false">${icons.flip}<span>Flip</span></button>
-        <button class="btn" data-act="back" aria-label="Card back design">${icons.back}<span class="back-label">Dark</span></button>
         <button class="btn" data-act="depth" aria-label="Art depth" aria-pressed="false">${icons.depth}<span>Depth</span></button>
         <button class="btn" data-act="tilt" aria-label="Motion tilt" aria-pressed="false" hidden>${icons.tilt}<span>Tilt</span></button>
         <button class="btn" data-act="next" aria-label="Next card">${icons.next}<span>Next</span></button>
@@ -41,6 +41,8 @@ export function createControls(root, handlers) {
     b.addEventListener("click", () => handlers.rarity(r.id));
     rarRow.append(b);
   }
+
+  if (handlers.nav) bindNav(root, handlers.nav);
 
   root.querySelector(".actions").addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-act]");
@@ -68,9 +70,6 @@ export function createControls(root, handlers) {
     },
     setSide(side) {
       $('[data-act="flip"]').setAttribute("aria-pressed", String(side === "back"));
-    },
-    setBack(variant) {
-      $(".back-label").textContent = variant === "green" ? "Green" : "Dark";
     },
     setDepth(on) {
       $('[data-act="depth"]').setAttribute("aria-pressed", String(on));

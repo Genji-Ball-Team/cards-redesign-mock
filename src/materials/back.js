@@ -18,7 +18,9 @@ vec3 shade(vec2 uv, Surf s) {
 
   vec3 diffuse = base * printLight(N) * (0.96 + 0.06 * g.b);
   float rough = mix(0.5, 0.12, mk.g);
-  vec3 varnish = keySpec(N, s.V, vec3(0.04), rough) + envSpec(N, s.V, vec3(0.04), rough) * 0.9;
+  // the satin stock's broad highlight is kept low so a near-black back stays black when it
+  // faces the key light; the spot-gloss pattern keeps its full, tight highlight
+  vec3 varnish = keySpec(N, s.V, vec3(0.04), rough) * mix(0.1, 0.8, mk.g) + envSpec(N, s.V, vec3(0.04), rough) * mix(0.12, 0.38, mk.g);
 
   vec3 F0 = clamp(base * 1.35 + 0.04, 0.0, 1.0);
   vec3 foil = keySpec(N, s.V, F0, 0.2) + envSpec(N, s.V, F0, 0.2) * 1.2 + base * 0.35;

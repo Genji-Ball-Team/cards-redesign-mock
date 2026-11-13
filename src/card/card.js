@@ -7,22 +7,60 @@ import { createStampTexture } from "./stampTexture.js";
 import { createMaterials } from "../materials/index.js";
 import { rarityById, printLabel } from "../data/cards.js";
 
+// Shared by every Card on the page: the noise, the geometry and each card image's textures
+// (art, derived map, zones, print stamp). Several cards can be on screen at once (the pack
+// reveal), so each Card owns its materials and uniforms but never duplicates these.
+let noise = null;
+let geometry = null;
+const NEUTRAL = new THREE.Color(1, 1, 1);
+const loaded = new Map();
+
+export function sharedNoise() {
+  if (!noise) noise = createNoiseTextures();
+  return noise;
+}
+
+// Loads (once per page) a card image and everything derived from it.
+export function loadCard(card, renderer) {
+  const key = `${card.id}:${card.print ?? ""}`;
+  if (loaded.has(key)) return loaded.get(key);
+  const p = new Promise((resolve, reject) => {
+    const img = new Image();
+    img.decoding = "async";
+    img.onload = () => {
+      const art = new THREE.Texture(img);
+      art.colorSpace = THREE.SRGBColorSpace;
+      art.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+      art.minFilter = THREE.LinearMipmapLinearFilter;
+      art.generateMipmaps = true;
+      art.needsUpdate = true;
+      const { map, zones, info } = analyzeCard(img, card.id);
+      const stamp = card.print != null ? createStampTexture(printLabel(card)) : null;
+      resolve({ art, map, zones, info, stamp });
+    };
+    img.onerror = () => reject(new Error(`could not load ${card.id}`));
+    img.src = `${import.meta.env.BASE_URL}cards/${card.id}.webp`;
+  });
+  loaded.set(key, p);
+  return p;
+}
+
 // The 3D card: one mesh, materials [front for the card's rarity, back, edge].
-// Art, its derived map and the mythic stamp are loaded per card and cached.
 export class Card {
   constructor(renderer) {
     this.renderer = renderer;
-    this.noise = createNoiseTextures();
-    this.mats = createMaterials(this.noise);
-    this.geometry = createCardGeometry();
+    this.mats = createMaterials(sharedNoise());
+    if (!geometry) geometry = createCardGeometry();
+    this.geometry = geometry;
     this.mesh = new THREE.Mesh(this.geometry, [this.mats.fronts.common, this.mats.back, this.mats.edge]);
     this.group = new THREE.Group();
     this.group.add(this.mesh);
-    this.cache = new Map();
-    this.backs = {};
     this.current = null;
-    this.maxAniso = Math.min(8, renderer.capabilities.getMaxAnisotropy());
     this.accentTarget = new THREE.Color(1, 1, 1);
+    const b = createBackTextures();
+    this.mats.back.uniforms.uBackCol.value = b.color;
+    this.mats.back.uniforms.uBackMask.value = b.mask;
+    this.mats.edge.uniforms.uBackTint.value.setRGB(...b.edgeTint);
   }
 
   get shared() {
@@ -30,26 +68,7 @@ export class Card {
   }
 
   load(card) {
-    if (this.cache.has(card.id)) return this.cache.get(card.id);
-    const p = new Promise((resolve, reject) => {
-      const img = new Image();
-      img.decoding = "async";
-      img.onload = () => {
-        const art = new THREE.Texture(img);
-        art.colorSpace = THREE.SRGBColorSpace;
-        art.anisotropy = this.maxAniso;
-        art.minFilter = THREE.LinearMipmapLinearFilter;
-        art.generateMipmaps = true;
-        art.needsUpdate = true;
-        const { map, zones, info } = analyzeCard(img, card.id);
-        const stamp = card.print != null ? createStampTexture(printLabel(card)) : null;
-        resolve({ art, map, zones, info, stamp });
-      };
-      img.onerror = () => reject(new Error(`could not load ${card.id}`));
-      img.src = `${import.meta.env.BASE_URL}cards/${card.id}.webp`;
-    });
-    this.cache.set(card.id, p);
-    return p;
+    return loadCard(card, this.renderer);
   }
 
   async show(card) {
@@ -73,14 +92,14 @@ export class Card {
     this.accentTarget.setRGB(...rarity.linear);
     this.mats.shared.uAccent.value.copy(this.accentTarget);
     this.current = card;
+    this.style = rarity.index;
   }
 
-  setBack(variant) {
-    if (!this.backs[variant]) this.backs[variant] = createBackTextures(variant);
-    const b = this.backs[variant];
-    this.mats.back.uniforms.uBackCol.value = b.color;
-    this.mats.back.uniforms.uBackMask.value = b.mask;
-    this.mats.edge.uniforms.uBackTint.value.setRGB(...b.edgeTint);
+  // Face down in a pack, the card must not give its rarity away: the edge is plain stock and the
+  // accent neutral for every card until the flip starts (conceal(false)).
+  conceal(on) {
+    this.mats.edge.uniforms.uStyle.value = on ? 0 : this.style ?? 0;
+    this.mats.shared.uAccent.value.copy(on ? NEUTRAL : this.accentTarget);
   }
 
   // Compile every front material up front so switching rarity never hitches. Uses a scratch

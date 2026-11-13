@@ -240,10 +240,10 @@ function drawBack(ctx, type, pass) {
     ctx.fillRect(0, H - SEAL, W, SEAL);
     ctx.fillRect(CX - 26, 0, 52, H);
   }
-  // the wordmark is split by the fin seal, one word on each side of it: nothing is printed on
-  // the seal itself, which is ridged bare foil
-  const wordY = H - SEAL - 60;
-  const GAP = 50; // from the pack's centre line to the nearest letter
+  // the small logo and wordmark sit in the left panel: nothing is printed on the fin seal, which
+  // is ridged bare foil
+  const markX = Math.round((CX - 26) / 2);
+  const markY = H - SEAL - 90;
   if (isCol || pass === "gloss") {
     ctx.strokeStyle = isCol ? L.inkHi : white;
     ctx.lineWidth = 3;
@@ -253,7 +253,7 @@ function drawBack(ctx, type, pass) {
     for (let y = SEAL + 30, row = 0; y < H - SEAL - 10; y += 40, row++) {
       for (let x = 30 + (row % 2) * 30; x < W; x += 60) {
         if (Math.abs(x - CX) < 50) continue;
-        if (Math.abs(x - CX) < 230 && Math.abs(y - (wordY - 14)) < 50) continue; // room for the wordmark
+        if (Math.abs(x - markX) < 110 && Math.abs(y - (markY - 5)) < 65) continue; // room for the logo
         ctx.beginPath();
         ctx.moveTo(x - dx, y - dy);
         ctx.lineTo(x + dx, y + dy);
@@ -262,10 +262,10 @@ function drawBack(ctx, type, pass) {
     }
   }
   if (isCol || pass === "emboss" || pass === "gloss") {
+    const g = isCol ? "oklch(76% 0.13 158)" : white;
+    drawMark(ctx, markX, markY - 10, 26, g);
     ctx.fillStyle = isCol ? L.label : white;
-    const word = { size: 40, weight: 800, tracking: 7 };
-    drawTracked(ctx, "GENJI", CX - GAP, wordY, { ...word, align: "right" });
-    drawTracked(ctx, "BALL", CX + GAP, wordY, { ...word, align: "left" });
+    drawTracked(ctx, "GENJI BALL", markX, markY + 40, { size: 26, weight: 800, tracking: 5 });
   }
 }
 

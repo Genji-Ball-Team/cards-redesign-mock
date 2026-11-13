@@ -7,6 +7,7 @@ import { attachPointer } from "../input/pointer.js";
 import { Pack } from "../pack/pack.js";
 import { PACK_W, PACK_H } from "../pack/packMesh.js";
 import { PACK_TYPES, packTypeById } from "../pack/packTypes.js";
+import { preparePacks } from "../pack/packArt.js";
 import { rng, rollPack, riggedPack, demoPack } from "../pack/pulls.js";
 import { Particles } from "../pack/particles.js";
 import { Reveal, restRoom } from "../pack/reveal.js";
@@ -408,7 +409,13 @@ export function createPackScreen({ stage, root, audio, reduced, still, onNav }) 
   controls.setType(type.id);
   setMode("idle");
   const ready = roll().then(() => {
-    if (!still) reveal.warmUp(stage.camera, stage.post?.scene ?? null).catch(() => {});
+    if (still) return;
+    // ahead of use, in the quiet after the first frames: the card shaders, then the other packs
+    reveal
+      .warmUp(stage.camera, stage.post?.scene ?? null)
+      .catch(() => {})
+      .then(() => preparePacks(stage.renderer, PACK_TYPES))
+      .catch(() => {});
   });
 
   // URL states for screenshots and links: an opened pack, a moment of the opening, cards

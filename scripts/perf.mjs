@@ -1,5 +1,6 @@
-// Frame-time check for the pack screen, headless: opens two packs in a row and lists every long
-// frame after each step (open, flip all, done), plus what the main thread was doing in it.
+// Frame-time check for the pack screen, headless: switches through the pack types, opens two
+// packs in a row and lists every long frame after each step (switch, open, flip all, done), plus
+// what the main thread was doing in it.
 //   node scripts/perf.mjs            desktop, real GPU if the headless browser gets one
 //   node scripts/perf.mjs phone      phone viewport with the CPU slowed 4x
 //   node scripts/perf.mjs phone 6    ... slowed 6x
@@ -58,13 +59,17 @@ if (slow > 1) {
   const cdp = await ctx.newCDPSession(page);
   await cdp.send("Emulation.setCPUThrottlingRate", { rate: slow });
 }
-await page.waitForTimeout(1500);
+// (the wait also covers the page's own preparation after its first frames; set WAIT=0 to see
+// what a visitor who acts at once gets)
+await page.evaluate(() => window.__mark("after load"));
+await page.waitForTimeout(Number(process.env.WAIT ?? 6000));
 
 const step = async (name, key, wait) => {
   await page.evaluate((n) => window.__mark(n), name);
   await page.keyboard.press(key);
   await page.waitForTimeout(wait);
 };
+for (const k of ["2", "3", "4", "5", "1"]) await step(`switch to pack ${k}`, k, 1500);
 for (const n of [1, 2]) {
   await step(`open ${n}`, "Enter", 3200);
   await step(`flip all ${n}`, "f", 9000);

@@ -281,13 +281,22 @@ function grey(draw, type, pass) {
   return out;
 }
 
-function faceTextures(draw, type) {
+// One face, as a generator: every yield is a point where the work can pause for a frame (each
+// step is a full-size canvas pass or blur, several milliseconds on a phone).
+function* faceSteps(draw, type) {
   const color = canvas();
   draw(color.getContext("2d"), type, "color");
+  yield;
   const foil = grey(draw, type, "foil");
+  yield;
   const gloss = grey(draw, type, "gloss");
-  const emboss = boxBlur(grey(draw, type, "emboss"), W, H, 2, 2);
+  yield;
+  const raised = grey(draw, type, "emboss");
+  yield;
+  const emboss = boxBlur(raised, W, H, 2, 2);
+  yield;
   const holo = grey(draw, type, "holo");
+  yield;
   const data = new Uint8Array(W * H * 4);
   for (let y = 0; y < H; y++) {
     for (let x = 0; x < W; x++) {
@@ -310,11 +319,46 @@ function faceTextures(draw, type) {
   return { col, mask };
 }
 
+function* packSteps(type) {
+  const front = yield* faceSteps(drawFront, type);
+  yield;
+  const back = yield* faceSteps(drawBack, type);
+  return { front, back, texel: [1 / W, 1 / H] };
+}
+
 const cache = new Map();
 
+// This type's textures, built on the spot if they aren't there yet (about ten full-size canvas
+// passes: a visible hitch, which is why preparePacks builds them ahead).
 export function packTextures(type) {
   if (!cache.has(type.id)) {
-    cache.set(type.id, { front: faceTextures(drawFront, type), back: faceTextures(drawBack, type), texel: [1 / W, 1 / H] });
+    const steps = packSteps(type);
+    let s = steps.next();
+    while (!s.done) s = steps.next();
+    cache.set(type.id, s.value);
   }
   return cache.get(type.id);
+}
+
+// Builds and uploads every type's textures ahead of use, one step a frame, so that switching
+// packs later has nothing left to do. A type asked for in the meantime is built at once by
+// packTextures, and skipped here.
+export async function preparePacks(renderer, types) {
+  const frame = () => new Promise((r) => (document.hidden ? setTimeout(r, 0) : requestAnimationFrame(r)));
+  for (const type of types) {
+    if (!cache.has(type.id)) {
+      const steps = packSteps(type);
+      let s = steps.next();
+      while (!s.done && !cache.has(type.id)) {
+        await frame();
+        s = steps.next();
+      }
+      if (s.done && !cache.has(type.id)) cache.set(type.id, s.value);
+    }
+    const t = cache.get(type.id);
+    for (const tex of [t.front.col, t.front.mask, t.back.col, t.back.mask]) {
+      await frame();
+      renderer.initTexture(tex);
+    }
+  }
 }

@@ -10,3 +10,5 @@ npm run dev
 ```
 
 The `gh-pages` branch holds the built site (`npx vite build --base=/cards-redesign-mock/`).
+In Git Bash, put `MSYS_NO_PATHCONV=1` in front: otherwise the shell turns the base into a
+Windows path and every asset on the published site returns 404.

@@ -17,7 +17,7 @@
 //
 // All coordinates in here are analysis pixels (w x h, y from the top of the image).
 
-import { boxBlur } from "./analyze.js";
+import { boxBlur } from "./blur.js";
 
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const smooth = (a, b, x) => {

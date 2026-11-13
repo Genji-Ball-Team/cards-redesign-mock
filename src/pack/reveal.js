@@ -94,10 +94,13 @@ export class Reveal {
   }
 
   // Puts a new pull on the slots (face down). Resolves when every card's textures are in.
-  async deal(cards) {
+  // The textures load straight away; the slots change only once `free` resolves (the cards of
+  // the pull before may still be on screen, sweeping off).
+  async deal(cards, free) {
+    const tex = await Promise.all(cards.map((c, i) => this.slots[i].card.load(c)));
+    await free;
     this.queue.length = 0;
     this.focus = null;
-    const tex = await Promise.all(cards.map((c, i) => this.slots[i].card.load(c)));
     await Promise.all(cards.map((c, i) => this.slots[i].card.show(c)));
     cards.forEach((c, i) => {
       const s = this.slots[i];
@@ -393,7 +396,11 @@ export class Reveal {
     return this.slots.map((s) => s.card.shared);
   }
 
-  async warmUp(camera) {
-    await this.slots[0].card.warmUp(camera);
+  // Compiles everything a pull can show before the first pack is opened: the five fronts and
+  // the flip effects, as drawn through the post pass's target.
+  async warmUp(camera, target) {
+    const s = this.slots[0];
+    const extra = [s.fx.halo, s.fx.sheen, s.fx.leak, s.fx.stamp, this.veil].map((m) => new THREE.Mesh(m.geometry, m.material));
+    await s.card.warmUp(camera, { extra, target });
   }
 }

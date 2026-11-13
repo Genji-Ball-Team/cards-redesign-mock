@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { createCardGeometry, CARD_W } from "./geometry.js";
 import { createNoiseTextures } from "./noise.js";
-import { analyzeCard, MW } from "./analyze.js";
+import { loadCardTextures, MW } from "./analyze.js";
 import { createBackTextures } from "./backTexture.js";
 import { createStampTexture } from "./stampTexture.js";
 import { createMaterials } from "../materials/index.js";
@@ -20,27 +20,40 @@ export function sharedNoise() {
   return noise;
 }
 
-// Loads (once per page) a card image and everything derived from it.
+// Uploads textures to the GPU one per frame, ahead of their first draw. Left to the renderer,
+// a pull's textures would all upload in the frame its cards first appear: a visible hitch in the
+// middle of the pack opening.
+let uploads = Promise.resolve();
+const nextFrame = () => new Promise((r) => requestAnimationFrame(r));
+function upload(renderer, textures) {
+  const run = async () => {
+    for (const t of textures) {
+      if (!t) continue;
+      // (a hidden tab has no frames: upload at once instead of waiting for one)
+      if (!document.hidden) await nextFrame();
+      renderer.initTexture(t);
+    }
+  };
+  uploads = uploads.then(run, run);
+  return uploads;
+}
+
+// Loads (once per page) a card image and everything derived from it, ready to draw: the image
+// decoded and the maps analysed (in a worker, see analyze.js), and every texture on the GPU.
 export function loadCard(card, renderer) {
   const key = `${card.id}:${card.print ?? ""}`;
   if (loaded.has(key)) return loaded.get(key);
-  const p = new Promise((resolve, reject) => {
-    const img = new Image();
-    img.decoding = "async";
-    img.onload = () => {
-      const art = new THREE.Texture(img);
-      art.colorSpace = THREE.SRGBColorSpace;
-      art.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
-      art.minFilter = THREE.LinearMipmapLinearFilter;
-      art.generateMipmaps = true;
-      art.needsUpdate = true;
-      const { map, zones, info } = analyzeCard(img, card.id);
-      const stamp = card.print != null ? createStampTexture(printLabel(card)) : null;
-      resolve({ art, map, zones, info, stamp });
-    };
-    img.onerror = () => reject(new Error(`could not load ${card.id}`));
-    img.src = `${import.meta.env.BASE_URL}cards/${card.id}.webp`;
-  });
+  const p = (async () => {
+    const url = `${import.meta.env.BASE_URL}cards/${card.id}.webp`;
+    const { art, map, zones, info } = await loadCardTextures(url, card.id).catch(() => {
+      throw new Error(`could not load ${card.id}`);
+    });
+    art.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+    const stamp = card.print != null ? createStampTexture(printLabel(card)) : null;
+    await upload(renderer, [art, map, zones, stamp]);
+    return { art, map, zones, info, stamp };
+  })();
+  p.catch(() => loaded.delete(key));
   loaded.set(key, p);
   return p;
 }
@@ -104,12 +117,33 @@ export class Card {
 
   // Compile every front material up front so switching rarity never hitches. Uses a scratch
   // scene so the live card keeps its material while frames render in between.
-  async warmUp(camera) {
+  //   extra:  more objects to compile along with the card (the pack screen's effect planes)
+  //   target: the render target the card is drawn into, if not the canvas. three compiles a
+  //           separate program per output colour space, so warming up for the canvas does
+  //           nothing for a screen that draws through a render target.
+  // With a target it ends with one real draw into a small copy of it: drivers finish compiling
+  // a shader the first time it draws, not when it links.
+  async warmUp(camera, { extra = [], target = null } = {}) {
+    const r = this.renderer;
     const scratch = new THREE.Scene();
     for (const m of Object.values(this.mats.fronts)) {
       scratch.add(new THREE.Mesh(this.geometry, [m, this.mats.back, this.mats.edge]));
     }
-    if (this.renderer.compileAsync) await this.renderer.compileAsync(scratch, camera);
-    else this.renderer.compile(scratch, camera);
+    for (const o of extra) scratch.add(o);
+    scratch.traverse((o) => {
+      o.frustumCulled = false;
+    });
+    const prev = r.getRenderTarget();
+    r.setRenderTarget(target);
+    const compiled = r.compileAsync ? r.compileAsync(scratch, camera) : r.compile(scratch, camera);
+    r.setRenderTarget(prev);
+    await compiled;
+    if (!target) return;
+    const small = target.clone();
+    small.setSize(8, 8);
+    r.setRenderTarget(small);
+    r.render(scratch, camera);
+    r.setRenderTarget(prev);
+    small.dispose();
   }
 }

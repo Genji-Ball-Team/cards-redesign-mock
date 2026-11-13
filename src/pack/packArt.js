@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { drawTracked } from "../card/text.js";
-import { boxBlur } from "../card/analyze.js";
+import { boxBlur } from "../card/blur.js";
 import { PACK_W, PACK_H, SEAL_H } from "./packMesh.js";
 
 // The pouch's printed faces, drawn per pack type into a colour canvas and a mask:

@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { drawTracked } from "./text.js";
-import { boxBlur } from "./analyze.js";
+import { boxBlur } from "./blur.js";
 
 // Mythic print number, e.g. "07/25", as a hot-foil stamp on its own plate:
 //   r = foil glyphs, g = glyph height (for the pressed-in bevel), b = the plate, a = the plate's foil rim.

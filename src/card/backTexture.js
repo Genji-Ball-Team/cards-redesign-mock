@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { boxBlur } from "./analyze.js";
+import { boxBlur } from "./blur.js";
 
 // The card back, drawn once into a colour canvas plus a mask canvas
 // (r = foil, g = spot gloss, b = emboss height). Laid out like a classic TCG back: a framed

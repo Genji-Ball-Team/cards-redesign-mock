@@ -95,13 +95,14 @@ export function createPackScreen({ stage, root, audio, reduced, still, onNav }) 
   const packMotion = new Motion({ reduced, still, yaw: params.ry * DEG, pitch: params.rx * DEG });
   const focusMotion = new Motion({ reduced, still });
 
-  function roll() {
+  // free: resolves when the slots may take the new cards (see Reveal.deal)
+  function roll(free) {
     let cards;
     if (firstPull && params.pull) cards = riggedPack(params.pull, type, rand);
     else if (firstPull && !typeChanged) cards = demoPack(rand);
     else cards = rollPack(type, rand);
     firstPull = false;
-    pullReady = reveal.deal(cards);
+    pullReady = reveal.deal(cards, free);
     return pullReady;
   }
 
@@ -170,16 +171,18 @@ export function createPackScreen({ stage, root, audio, reduced, still, onNav }) 
     reveal.hovered = null;
     setMode("collect");
     controls.setCard(null);
+    // the next pull, for the pack that drops in: loaded during the sweep, dealt after it
+    let swept;
+    roll(new Promise((r) => (swept = r)));
     seq = buildCollect(S);
     seq.onEnd = () => {
       seq = null;
       particles.clear();
       accent.copy(pack.trim);
       setMode("idle");
+      swept();
     };
     seq.play(seqClock);
-    // the next pull, for the pack that drops in
-    roll();
   }
 
   function tapSlot(s) {
@@ -405,7 +408,7 @@ export function createPackScreen({ stage, root, audio, reduced, still, onNav }) 
   controls.setType(type.id);
   setMode("idle");
   const ready = roll().then(() => {
-    if (!still) reveal.warmUp(stage.camera).catch(() => {});
+    if (!still) reveal.warmUp(stage.camera, stage.post?.scene ?? null).catch(() => {});
   });
 
   // URL states for screenshots and links: an opened pack, a moment of the opening, cards

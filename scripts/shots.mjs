@@ -84,6 +84,8 @@ const FLIP_MOMENTS = [
 const PACK = [
   // idle, one per type (t=0.6 catches the light sweep part way)
   ...["daily", "starter", "epic", "legendary", "mythic"].map((t) => ({ name: `pack-idle-${t}`, vp: "phone", q: `pack=${t}&rx=-6&ry=16&t=0.6` })),
+  // the back, with the fin seal down the middle
+  ...["daily", "mythic"].map((t) => ({ name: `pack-back-${t}`, vp: "phone", q: `pack=${t}&rx=-6&ry=196&t=0.6` })),
   { name: "pack-idle-daily-desk", vp: "desk", q: `pack=daily&rx=-5&ry=-14&t=0.6` },
   { name: "pack-idle-mythic-desk", vp: "desk", q: `pack=mythic&rx=-5&ry=14&t=2` },
   // the opening

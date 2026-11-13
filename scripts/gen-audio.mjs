@@ -35,7 +35,8 @@ for (const [name, event] of Object.entries(manifest.events)) {
       body: JSON.stringify({
         text: event.prompt,
         duration_seconds: seconds,
-        prompt_influence: 0.5,
+        // high: stick to the described recording, don't embellish
+        prompt_influence: 0.7,
         loop: event.loop,
         model_id: 'eleven_text_to_sound_v2',
       }),

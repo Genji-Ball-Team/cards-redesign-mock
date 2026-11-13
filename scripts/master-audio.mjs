@@ -38,7 +38,13 @@ const MIX = {
 function master(from, to, name) {
   const mix = MIX[name];
   const shape = [];
-  if (!mix.loop) shape.push('silenceremove=stop_periods=1:stop_duration=0.08:stop_threshold=-55dB');
+  // no silence before the sound (it would land late against the picture) or after it
+  if (!mix.loop) {
+    shape.push(
+      'silenceremove=start_periods=1:start_threshold=-45dB',
+      'silenceremove=stop_periods=1:stop_duration=0.08:stop_threshold=-55dB',
+    );
+  }
   if (mix.cut) shape.push(`atrim=0:${mix.cut}`);
   if (mix.lowpass) shape.push(`lowpass=f=${mix.lowpass}`);
   if (mix.hall) shape.push('apad=pad_dur=0.5', 'aecho=0.8:0.5:70|130:0.22|0.14');
